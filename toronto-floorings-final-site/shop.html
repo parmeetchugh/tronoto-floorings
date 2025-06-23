@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Browse the latest products from Toronto Floorings and Building Supplies." />
+  <title>Shop – Toronto Floorings</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Google Fonts - Inter for a modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for social media icons and phone/email/location icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="sticky-header-wrapper">
+    <div class="top-bar">
+      <div class="container">
+        <div>📞 (905) 840-0222 | ✉️ torontofloorings@gmail.com</div>
+        <div class="cart">🛒 <span id="cart-count">0</span> Items</div>
+      </div>
+    </div>
+    <header class="main-header">
+      <!-- Placeholder for a more professional logo -->
+      <img src="https://placehold.co/180x60/4CAF50/FFFFFF?text=TORONTO+FLOORINGS" alt="Toronto Floorings logo" class="logo" />
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+    </header>
+  </div>
+
+  <section class="shop-products">
+    <div class="container">
+      <h1>Our Shop</h1>
+      <p>Explore our wide selection of tiles, flooring, plumbing, and building supplies.</p>
+      <p><em>Note: More products will be added soon!</em></p>
+      <div class="product-grid">
+        <!-- Example Product Cards - you can add more here -->
+        <div class="product-card">
+          <img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Laminate+Flooring" alt="Laminate Flooring" />
+          <h3>Classic Laminate</h3>
+          <p class="price">$2.50 / sq.ft</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Vinyl+Plank" alt="Vinyl Plank Flooring" />
+          <h3>Durable Vinyl Plank</h3>
+          <p class="price">$3.10 / sq.ft</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Porcelain+Tile" alt="Porcelain Tile" />
+          <h3>Elegant Porcelain Tile</h3>
+          <p class="price">$4.75 / sq.ft</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Hardwood+Oak" alt="Hardwood Oak Flooring" />
+          <h3>Solid Oak Hardwood</h3>
+          <p class="price">$6.99 / sq.ft</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Pipes" alt="Pipes" />
+            <h3>PVC Pipes (Various Sizes)</h3>
+            <p class="price">From $1.20 / ft</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Faucets" alt="Faucets" />
+            <h3>Modern Kitchen Faucet</h3>
+            <p class="price">$120.00</p>
+            <button>Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Comprehensive Footer Section -->
+  <footer class="new-footer">
+    <div class="footer-column footer-info">
+      <h3>Brampton Store</h3>
+      <p><i class="fas fa-map-marker-alt"></i> 9446 McLaughlin Rd N Unit # 12, Brampton, ON L6X 4H9</p>
+      <p><i class="fas fa-phone-alt"></i> (905) 744-0222</p>
+      <p><i class="fas fa-envelope"></i> torontofloorings@gmail.com</p>
+      <h3 style="margin-top: 30px;">Store Timings</h3>
+      <ul class="timing-list">
+        <li>Monday - Friday: 8a.m. - 7 p.m.</li>
+        <li>Sat: 9 a.m. - 5 p.m.</li>
+        <li>Sun: 9 a.m. - 5 p.m.</li>
+      </ul>
+    </div>
+
+    <div class="footer-column footer-form">
+      <h3>Have questions?</h3>
+      <form onsubmit="submitFooterEnquiry(event)">
+        <div class="form-grid">
+          <input type="text" id="footerFirstName" placeholder="First Name" required />
+          <input type="text" id="footerLastName" placeholder="Last Name" required />
+          <input type="email" id="footerEmail" placeholder="Email Address" required />
+          <input type="tel" id="footerPhone" placeholder="Phone Number" pattern="^\+1 \(\d{3}\) \d{3}-\d{4}$" title="Format: +1 (XXX) XXX-XXXX" required />
+        </div>
+        <textarea id="footerMessage" placeholder="Message"></textarea>
+        <div class="math-captcha">
+          <span id="captchaQuestion"></span>
+          <input type="text" id="captchaAnswer" placeholder="Your Answer" required />
+        </div>
+        <button type="submit">Submit Enquiry</button>
+      </form>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Refund and Returns Policy</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <p>&copy; <span id="currentYear"></span> Toronto Floorings & Renovation. All Rights Reserved.</p>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <!-- Add more social icons as needed -->
+      </div>
+    </div>
+  </footer>
+
+
+<script>
+// Global function to toggle the navigation menu for mobile responsiveness
+function toggleMenu() {
+  const nav = document.getElementById('navMenu');
+  nav.classList.toggle('show');
+}
+
+// Global function to handle the "Add to Cart" button click on shop.html
+// This is a placeholder; a real cart would involve more complex logic.
+function handleAddToCart(buttonElement) {
+    const productCard = buttonElement.closest('.product-card');
+    const productName = productCard.querySelector('h3').textContent;
+    const price = productCard.querySelector('.price').textContent;
+
+    const messageDivId = 'cartMessage';
+    let messageDiv = document.getElementById(messageDivId);
+
+    if (!messageDiv) {
+        messageDiv = document.createElement('div');
+        messageDiv.id = messageDivId;
+        messageDiv.className = 'shop-message'; /* Reusing common message style */
+        messageDiv.style.background = '#4CAF50'; /* Green for success */
+        document.body.appendChild(messageDiv);
+    }
+
+    messageDiv.textContent = `"${productName}" (${price}) added to cart!`;
+    messageDiv.style.opacity = '0';
+    messageDiv.style.display = 'flex';
+
+    setTimeout(() => {
+        messageDiv.style.opacity = '1';
+    }, 10);
+
+    setTimeout(() => {
+        messageDiv.style.opacity = '0';
+        messageDiv.addEventListener('transitionend', () => {
+            messageDiv.style.display = 'none';
+            messageDiv.remove();
+        }, { once: true });
+    }, 3000);
+
+    // Update cart count (simple increment)
+    const cartCountSpan = document.getElementById('cart-count');
+    let currentCount = parseInt(cartCountSpan.textContent);
+    cartCountSpan.textContent = currentCount + 1;
+}
+
+
+// JavaScript for sticky header shrink on scroll
+window.addEventListener('scroll', () => {
+  const headerWrapper = document.querySelector('.sticky-header-wrapper');
+  if (window.scrollY > 50) {
+    headerWrapper.classList.add('scrolled');
+  } else {
+    headerWrapper.classList.remove('scrolled');
+  }
+});
+
+// Footer Contact Form Logic (copied from index.html for consistency)
+let currentCaptchaAnswer;
+
+function generateCaptcha() {
+  const num1 = Math.floor(Math.random() * 10) + 1;
+  const num2 = Math.floor(Math.random() * 10) + 1;
+  const question = `${num1} + ${num2} =`;
+  currentCaptchaAnswer = num1 + num2;
+  document.getElementById('captchaQuestion').textContent = question;
+}
+
+function submitFooterEnquiry(event) {
+  event.preventDefault();
+
+  const firstName = document.getElementById('footerFirstName').value;
+  const lastName = document.getElementById('footerLastName').value;
+  const email = document.getElementById('footerEmail').value;
+  const phone = document.getElementById('footerPhone').value;
+  const message = document.getElementById('footerMessage').value;
+  const captchaAnswer = parseInt(document.getElementById('captchaAnswer').value);
+
+  if (captchaAnswer !== currentCaptchaAnswer) {
+    displayFooterMessage('Incorrect CAPTCHA answer. Please try again.', '#F44336');
+    generateCaptcha();
+    return;
+  }
+
+  console.log('Footer Enquiry Details:');
+  console.log(`First Name: ${firstName}`);
+  console.log(`Last Name: ${lastName}`);
+  console.log(`Email: ${email}`);
+  console.log(`Phone: ${phone}`);
+  console.log(`Message: ${message}`);
+
+  displayFooterMessage('Your message has been sent successfully!', '#4CAF50');
+
+  event.target.reset();
+  generateCaptcha();
+}
+
+function displayFooterMessage(msg, bgColor) {
+    const messageDivId = 'footerConfirmationMessage';
+    let messageDiv = document.getElementById(messageDivId);
+
+    if (!messageDiv) {
+        messageDiv = document.createElement('div');
+        messageDiv.id = messageDivId;
+        messageDiv.className = 'shop-message';
+        document.body.appendChild(messageDiv);
+        messageDiv.style.top = 'auto';
+        messageDiv.style.bottom = '20px';
+        messageDiv.style.left = '50%';
+        messageDiv.style.transform = 'translateX(-50%)';
+        messageDiv.style.background = bgColor;
+    } else {
+        messageDiv.style.background = bgColor;
+    }
+
+    messageDiv.textContent = msg;
+    messageDiv.style.opacity = '0';
+    messageDiv.style.display = 'flex';
+
+    setTimeout(() => {
+        messageDiv.style.opacity = '1';
+    }, 10);
+
+    setTimeout(() => {
+        messageDiv.style.opacity = '0';
+        messageDiv.addEventListener('transitionend', () => {
+            messageDiv.style.display = 'none';
+            messageDiv.remove();
+        }, { once: true });
+    }, 3000);
+}
+
+// Initialize CAPTCHA on page load for shop.html
+document.addEventListener('DOMContentLoaded', () => {
+  generateCaptcha();
+  document.getElementById('currentYear').textContent = new Date().getFullYear(); // Set current year for copyright
+});
+</script>
+
+</body>
+</html>
