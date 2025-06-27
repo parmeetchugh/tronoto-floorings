@@ -2768,3 +2768,7 @@ table.order-details tbody td {
   opacity: 1;
   transform: translateY(0);
 }
+
+.section-bg-light{
+  background-color: #fbf9f9;
+}
