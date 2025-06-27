@@ -462,7 +462,7 @@
 	<!-- end features list section -->
 
 	<!-- Shop by Category Section -->
-	<div class="product-section mt-150 mb-150" id="shop-by-category-section">
+<div class="category-section section-bg-category hidden" id="shop-by-category-section">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
@@ -478,7 +478,7 @@
 				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
 					<div class="single-product-item category-item category-card">
 						<div class="product-image">
-							<a href="#"><img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Hardwood+Flooring" alt="Hardwood Flooring Category"></a>
+							<a href="#"><img src="assets/img/hardwood-floorings.jpg" alt="Hardwood Flooring Category"></a>
 						</div>
 						<h3>Hardwood Flooring</h3>
 					</div>
@@ -487,7 +487,7 @@
 				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
 					<div class="single-product-item category-item category-card">
 						<div class="product-image">
-							<a href="#"><img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Vinyl+Flooring" alt="Vinyl Flooring Category"></a>
+							<a href="#"><img src="assets/img/vinyl-flooring.jpg" alt="Vinyl Flooring Category"></a>
 						</div>
 						<h3>Vinyl Flooring</h3>
 					</div>
@@ -496,7 +496,7 @@
 				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
 					<div class="single-product-item category-item category-card">
 						<div class="product-image">
-							<a href="#"><img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Laminate+Flooring" alt="Laminate Flooring Category"></a>
+							<a href="#"><img src="assets/img/laminate-flooring.jpg.crdownload" alt="Laminate Flooring Category"></a>
 						</div>
 						<h3>Laminate Flooring</h3>
 					</div>
@@ -505,7 +505,7 @@
 				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
 					<div class="single-product-item category-item category-card">
 						<div class="product-image">
-							<a href="#"><img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Stairs" alt="Stairs Category"></a>
+							<a href="#"><img src="assets/img/stairs.jpg" alt="Stairs Category"></a>
 						</div>
 						<h3>Stairs</h3>
 					</div>
@@ -514,7 +514,7 @@
 				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
 					<div class="single-product-item category-item category-card">
 						<div class="product-image">
-							<a href="#"><img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Tiles" alt="Tiles Category"></a>
+							<a href="#"><img src="assets/img/tiles.jpg" alt="Tiles Category"></a>
 						</div>
 						<h3>Tiles</h3>
 					</div>
@@ -821,6 +821,40 @@
 		</div>
 	</div>
 	<!-- end copyright -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll("#shop-by-category-section .category-card");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+
+          // Stagger effect
+          setTimeout(() => {
+            card.classList.add("animate-in");
+          }, card.dataset.delay);
+
+          observer.unobserve(card);
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    cards.forEach((card, index) => {
+      // Add delay using data-attribute
+      card.dataset.delay = index * 150;
+      observer.observe(card);
+    });
+  });
+</script>
+
+
+
+
+
 	
 	<!-- jquery -->
 	<script src="assets/js/jquery-1.11.3.min.js"></script>
