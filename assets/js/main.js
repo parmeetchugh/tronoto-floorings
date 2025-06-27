@@ -1,7 +1,7 @@
 (function ($) {
     "use strict";
 
-    $(document).ready(function($){
+    $(document).ready(function(){
         
         // testimonial sliders
         $(".testimonial-sliders").owlCarousel({
@@ -85,7 +85,7 @@
          });
         }
 
-        // projects filters isotop
+        // projects filters isotop (kept for compatibility, though not directly used by categories)
         $(".product-filters li").on('click', function () {
             
             $(".product-filters li").removeClass("active");
@@ -99,7 +99,7 @@
             
         });
         
-        // isotop inner
+        // isotop inner (kept for compatibility)
         $(".product-lists").isotope();
 
         // magnific popup
@@ -135,11 +135,18 @@
             $(".hero-btns").addClass("animated fadeInUp").css({'opacity': '0', 'animation-delay' : '0.5s'});
         });
 
-       
-
-        // stikcy js
+        // stikcy js initialization (moved up for event binding)
         $("#sticker").sticky({
             topSpacing: 0
+        });
+
+        // Logo shrink on sticky header: Listen for sticky events
+        $("#sticker").on('sticky-start', function() {
+            $(this).addClass('sticky-scrolled'); // Add class to trigger CSS for smaller logo
+        });
+
+        $("#sticker").on('sticky-end', function() {
+            $(this).removeClass('sticky-scrolled'); // Remove class to revert logo size
         });
 
         //mean menu
@@ -156,6 +163,9 @@
         $(".close-btn").on("click", function() {
             $(".search-area").removeClass("search-active");
         });
+
+        // Removed Shop by Category section animation on scroll
+        // The section will now be visible by default as per the HTML structure.
     
     });
 
