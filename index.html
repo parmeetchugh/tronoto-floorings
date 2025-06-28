@@ -38,7 +38,7 @@
         /* Custom styles for category cards to match theme */
         .category-card {
             background-color: #fff;
-            padding: 20px; /* Adjusted padding for a more compact card */
+            padding: 5px; /* Adjusted padding for a more compact card */
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -54,22 +54,32 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
         }
 
-        .category-card .product-image { /* Keep product-image for the img container */
-            margin-bottom: 15px; /* Space between image and title */
-        }
+        
 
-        .category-card .product-image img {
-            border-radius: 8px; /* Slightly rounded corners for images within the card */
-            object-fit: cover; /* Ensure images cover the area without distortion */
-            width: 100%;
-            height: 150px; /* Fixed height for consistent image size */
-        }
+       .category-card .product-image img {
+    border-radius: 4px;
+    object-fit: cover;
+    width: 100%;
+    height: 250px; /* Increased height */
+    max-height: 320px;
+}
 
-        .category-card h3 {
-            font-size: 1.25rem; /* Adjust font size for category titles */
-            margin-bottom: 0; /* Remove bottom margin to prevent extra space */
-            color: #4caf50; /* Changed color to match green theme */
-        }
+
+       .category-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0;
+    color: #ff5722; /* Vibrant orange (or try #ff6f61, #ff9800, etc.) */
+    font-weight: 600;
+}
+
+
+
+.category-card h3:hover {
+    color: #e91e63; /* Adds a hover color (pinkish tone) */
+    cursor: pointer;
+}
+
+
 
         /* Override existing single-product-item styles that are no longer needed for categories */
         /* This ensures that product-specific elements like price and add to cart buttons are hidden */
@@ -99,11 +109,12 @@
                 max-width: 50%;
             }
              .category-card {
-                padding: 15px; /* Slightly less padding on smaller screens */
+                padding: 5px; /* Slightly less padding on smaller screens */
             }
              .category-card .product-image img {
-                height: 120px; /* Adjust image height for mobile */
-            }
+    height: 180px; /* Bigger image on mobile */
+}
+
             .category-card h3 {
                 font-size: 1.1rem; /* Adjust font size for mobile */
             }
@@ -496,7 +507,7 @@
 				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
 					<div class="single-product-item category-item category-card">
 						<div class="product-image">
-							<a href="#"><img src="assets/img/laminate-flooring.jpg.crdownload" alt="Laminate Flooring Category"></a>
+							<a href="#"><img src="assets/img/laminate-flooring.jpg" alt="Laminate Flooring Category"></a>
 						</div>
 						<h3>Laminate Flooring</h3>
 					</div>
@@ -523,7 +534,7 @@
 				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
 					<div class="single-product-item category-item category-card">
 						<div class="product-image">
-							<a href="#"><img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Home+Renovations" alt="Home Renovations Category"></a>
+							<a href="#"><img src="assets/img/home-renovations.jpg" alt="Home Renovations Category"></a>
 						</div>
 						<h3>Home Renovations</h3>
 					</div>
@@ -532,7 +543,7 @@
 				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
 					<div class="single-product-item category-item category-card">
 						<div class="product-image">
-							<a href="#"><img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Building+Materials" alt="Building Materials Category"></a>
+							<a href="#"><img src="assets/img/building-materials.jpg" alt="Building Materials Category"></a>
 						</div>
 						<h3>Building Materials</h3>
 					</div>
@@ -541,7 +552,7 @@
 				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
 					<div class="single-product-item category-item category-card">
 						<div class="product-image">
-							<a href="#"><img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Hardware" alt="Hardware Category"></a>
+							<a href="#"><img src="assets/img/hardware.jpg" alt="Hardware Category"></a>
 						</div>
 						<h3>Hardware</h3>
 					</div>
@@ -550,7 +561,7 @@
 				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
 					<div class="single-product-item category-item category-card">
 						<div class="product-image">
-							<a href="#"><img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Kitchen" alt="Kitchen Category"></a>
+							<a href="#"><img src="assets/img/kitchen.jpg" alt="Kitchen Category"></a>
 						</div>
 						<h3>Kitchen</h3>
 					</div>
@@ -559,7 +570,7 @@
 				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
 					<div class="single-product-item category-item category-card">
 						<div class="product-image">
-							<a href="#"><img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Bathroom" alt="Bathroom Category"></a>
+							<a href="#"><img src="assets/img/bathroom.jpg" alt="Bathroom Category"></a>
 						</div>
 						<h3>Bathroom</h3>
 					</div>
@@ -568,7 +579,7 @@
 				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
 					<div class="single-product-item category-item category-card">
 						<div class="product-image">
-							<a href="#"><img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Plumbing" alt="Plumbing Category"></a>
+							<a href="#"><img src="assets/img/plumbing.jpg" alt="Plumbing Category"></a>
 						</div>
 						<h3>Plumbing</h3>
 					</div>
@@ -577,7 +588,7 @@
 				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
 					<div class="single-product-item category-item category-card">
 						<div class="product-image">
-							<a href="#"><img src="https://placehold.co/300x200/4CAF50/FFFFFF?text=Flooring+Accessories" alt="Flooring Accessories Category"></a>
+							<a href="#"><img src="assets/img/flooring-accesories.jpg" alt="Flooring Accessories Category"></a>
 						</div>
 						<h3>Accessories of Flooring</h3>
 					</div>
