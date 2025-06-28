@@ -833,7 +833,28 @@
 	</div>
 	<!-- end copyright -->
 
+	<a href="#" id="scrollToTop" title="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</a>
 <script>
+  const scrollBtn = document.getElementById("scrollToTop");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  });
+
+  scrollBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+
+
+
   document.addEventListener("DOMContentLoaded", function () {
     const cards = document.querySelectorAll("#shop-by-category-section .category-card");
 
@@ -887,6 +908,7 @@
 	<script src="assets/js/sticker.js"></script>
 	<!-- main js -->
 	<script src="assets/js/main.js"></script>
+
 
 </body>
 </html>
