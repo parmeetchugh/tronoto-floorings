@@ -53,33 +53,26 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
         }
 
-        
-
        .category-card .product-image img {
-    border-radius: 4px;
-    object-fit: cover;
-    width: 100%;
-    height: 250px; /* Increased height */
-    max-height: 320px;
-}
-
+            border-radius: 4px;
+            object-fit: cover;
+            width: 100%;
+            height: 250px; /* Increased height */
+            max-height: 320px;
+        }
 
        .category-card h3 {
-    font-size: 1.25rem;
-	margin-top: 5px;
-    margin-bottom: 0px;
-    color: #de701d; /* Vibrant orange (or try #ff6f61, #ff9800, etc.) */
-    font-weight: 600;
-}
+            font-size: 1.25rem;
+            margin-top: 5px;
+            margin-bottom: 0px;
+            color: #de701d; /* Vibrant orange (or try #ff6f61, #ff9800, etc.) */
+            font-weight: 600;
+        }
 
-
-
-.category-card h3:hover {
-    color: #e91e63; /* Adds a hover color (pinkish tone) */
-    cursor: pointer;
-}
-
-
+        .category-card h3:hover {
+            color: #e91e63; /* Adds a hover color (pinkish tone) */
+            cursor: pointer;
+        }
 
         /* Override existing single-product-item styles that are no longer needed for categories */
         /* This ensures that product-specific elements like price and add to cart buttons are hidden */
@@ -112,8 +105,8 @@
                 padding: 2px; /* Slightly less padding on smaller screens */
             }
              .category-card .product-image img {
-    height: 300px; /* Bigger image on mobile */
-}
+                height: 300px; /* Bigger image on mobile */
+            }
 
             .category-card h3 {
                 font-size: 1.1rem; /* Adjust font size for mobile */
@@ -228,6 +221,39 @@
             font-size: 0.95rem;
             color: #666;
             margin-bottom: 0;
+        }
+
+        /* Styles for the project images */
+        .project-img-container {
+            height: 300px; /* Set a fixed height for all image containers */
+            overflow: hidden; /* Hide overflowing parts of the image */
+            display: flex; /* Use flexbox to center the image */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            border-radius: 10px; /* Rounded corners for the container */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+        }
+
+        .project-img-container img {
+            width: 100%; /* Make the image take full width of its container */
+            height: 100%; /* Make the image take full height of its container */
+            object-fit: cover; /* Cover the container while maintaining aspect ratio, cropping if necessary */
+            border-radius: 10px; /* Apply border-radius to the image itself */
+        }
+
+        /* Responsive adjustments for project images */
+        @media (max-width: 767.98px) {
+            .project-img-container {
+                height: 250px; /* Slightly smaller height on mobile */
+            }
+        }
+
+        /* New CSS for the SVG icons in "What Makes Us Different" section */
+        .wmud-card .icon-svg {
+            width: 50px; /* Match the original image width */
+            height: 50px; /* Match the original image height */
+            margin-bottom: 15px; /* Spacing below the icon */
+            fill: #4CAF50; /* Green color for the SVG */
         }
     </style>
 
@@ -526,7 +552,10 @@
           <!-- Card 1 -->
           <div class="col-md-4">
             <div class="wmud-card text-center">
-              <img src="assets/img/icon-document.png" alt="Icon" class="mb-3" width="50" />
+              <!-- SVG Icon for Permits & Plans -->
+              <svg class="icon-svg mb-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2ZM18 20H6V4H13V9H18V20ZM9.70711 12.7071L8.29289 14.1213L11 16.8284L15.7071 12.1213L14.2929 10.7071L11 14L9.70711 12.7071Z"/>
+              </svg>
               <h5 class="fw-bold">PERMITS & PLANS</h5>
               <p class="mb-0">We get all the necessary permits & plans you need</p>
             </div>
@@ -535,7 +564,10 @@
           <!-- Card 2 -->
           <div class="col-md-4">
             <div class="wmud-card text-center">
-              <img src="assets/img/icon-document.png" alt="Icon" class="mb-3" width="50" />
+              <!-- SVG Icon for In-House Design Team -->
+              <svg class="icon-svg mb-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2ZM18 20H6V4H13V9H18V20ZM9.70711 12.7071L8.29289 14.1213L11 16.8284L15.7071 12.1213L14.2929 10.7071L11 14L9.70711 12.7071Z"/>
+              </svg>
               <h5 class="fw-bold">IN-HOUSE DESIGN TEAM</h5>
               <p class="mb-0">Professional and custom design with you in mind.</p>
             </div>
@@ -544,7 +576,10 @@
           <!-- Card 3 -->
           <div class="col-md-4">
             <div class="wmud-card text-center">
-              <img src="assets/img/icon-document.png" alt="Icon" class="mb-3" width="50" />
+              <!-- SVG Icon for Trusted Sources -->
+              <svg class="icon-svg mb-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2ZM18 20H6V4H13V9H18V20ZM9.70711 12.7071L8.29289 14.1213L11 16.8284L15.7071 12.1213L14.2929 10.7071L11 14L9.70711 12.7071Z"/>
+              </svg>
               <h5 class="fw-bold">TRUSTED SOURCES</h5>
               <p class="mb-0">Our designers use high quality materials</p>
             </div>
@@ -569,20 +604,27 @@
       <span class="green-bracket">Our <span class="orange-step">Projects</span>
     </h2>
 	</div>
-	
         <!-- Row 1 -->
         <div class="col-md-6 mb-4">
-            <img src="assets/img/renovation1.jpg" alt="Renovation Image 1" class="img-fluid rounded shadow-sm">
+            <div class="project-img-container">
+                <img src="assets/img/home-renovation-1.jpg" alt="Renovation Image 1">
+            </div>
         </div>
         <div class="col-md-6 mb-4">
-            <img src="assets/img/renovation2.jpg" alt="Renovation Image 2" class="img-fluid rounded shadow-sm">
+            <div class="project-img-container">
+                <img src="assets/img/home-renovation-2.jpg" alt="Renovation Image 2">
+            </div>
         </div>
         <!-- Row 2 -->
         <div class="col-md-6 mb-4">
-            <img src="assets/img/renovation3.jpg" alt="Renovation Image 3" class="img-fluid rounded shadow-sm">
+            <div class="project-img-container">
+                <img src="assets/img/home-renovation-3.jpg" alt="Renovation Image 3">
+            </div>
         </div>
         <div class="col-md-6 mb-4">
-            <img src="assets/img/renovation4.jpg" alt="Renovation Image 4" class="img-fluid rounded shadow-sm">
+            <div class="project-img-container">
+                <img src="assets/img/home-renovation-4.jpg" alt="Renovation Image 4">
+            </div>
         </div>
 		
     </div>
@@ -630,7 +672,7 @@
     <!-- Image -->
     <div class="col-md-6 text-center mt-4 mt-md-0">
       <div style="border: 10px solid #f57c00; padding: 10px;">
-        <img src="assets/img/house-quote.png" alt="House Renovation" class="img-fluid">
+        <img src="assets/img/free-estimate.jpg" alt="House Renovation" class="img-fluid">
       </div>
     </div>
   </div>
