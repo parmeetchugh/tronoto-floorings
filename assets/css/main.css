@@ -2843,4 +2843,69 @@ table.order-details tbody td {
   color: #6ad14c;
 }
 
+.background-section{
+  background-color: rgba(139, 87, 87, 0.030);
+}
+
+
+.service-areas-section {
+  background-color: #f9f9f9;
+}
+
+.green-square {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #74db58;
+  position: relative;
+}
+
+.green-square::after {
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  background: white;
+}
+
+.service-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #74db58;
+}
+
+.area-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 24px;
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #111;
+}
+.wmud-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.green-bracket {
+  border: 6px solid #74db58;
+  padding: 10px 15px;
+  display: inline-block;
+}
+
+.green-text {
+  color: #74db58;
+}
+
+.wmud-card {
+  background: #fafafa;
+  padding: 20px 15px;
+  border-radius: 6px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  height: 100%;
+}
+
 
