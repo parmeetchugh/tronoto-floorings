@@ -2798,14 +2798,14 @@ table.order-details tbody td {
   font-weight: 700;
 }
 
-.green-step {
-  color: #6ad14c;
+.orange-step {
+  color:#f57c00;
   font-weight: 700;
 }
 
 .green-bracket {
   display: inline-block;
-  border: 6px solid #6ad14c;
+  border: 6px solid #f57c00;
   padding: 10px 20px;
   font-size: 2.2rem;
   line-height: 1.4;
@@ -2855,7 +2855,7 @@ table.order-details tbody td {
 .green-square {
   width: 60px;
   height: 60px;
-  border: 6px solid #74db58;
+  border: 6px solid #f57c00;
   position: relative;
 }
 
@@ -2872,7 +2872,7 @@ table.order-details tbody td {
 .service-heading {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #74db58;
+  color: #f57c00;
 }
 
 .area-list {
@@ -2891,13 +2891,13 @@ table.order-details tbody td {
 }
 
 .green-bracket {
-  border: 6px solid #74db58;
+  border: 6px solid #f57c00;
   padding: 10px 15px;
   display: inline-block;
 }
 
-.green-text {
-  color: #74db58;
+.orange-text {
+  color: #f57c00;
 }
 
 .wmud-card {
