@@ -4,16 +4,14 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+	<meta name="description" content="Explore a wide range of flooring, plumbing, and building materials categories from Toronto Floorings and Building Supplies.">
+	<meta name="keywords" content="Hardwood flooring, Vinyl Flooring, Laminate Flooring, Stairs, Tiles, Home Renovations, Building Materials, Hardware, Kitchen, Bathroom, Plumbing, Accessories, Toronto, Canada, building supplies, categories">
 
 	<!-- title -->
-	<title>Shop</title>
+	<title>Toronto Floorings & Building Supplies</title>
 
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
-	<!-- google font -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
 	<!-- fontawesome -->
 	<link rel="stylesheet" href="assets/css/all.min.css">
 	<!-- bootstrap -->
@@ -31,6 +29,208 @@
 	<!-- responsive -->
 	<link rel="stylesheet" href="assets/css/responsive.css">
 
+    <style>
+        /* Global font change to Times New Roman */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        /* Custom styles for category cards to match theme */
+        .category-card {
+            background-color: #fff;
+            padding: 5px; /* Adjusted padding for a more compact card */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%; /* Ensure uniform height for all cards in a row */
+            display: flex;
+            flex-direction: column;
+            text-align: center; /* Center content within the card */
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        
+
+       .category-card .product-image img {
+    border-radius: 4px;
+    object-fit: cover;
+    width: 100%;
+    height: 250px; /* Increased height */
+    max-height: 320px;
+}
+
+
+       .category-card h3 {
+    font-size: 1.25rem;
+	margin-top: 5px;
+    margin-bottom: 0px;
+    color: #de701d; /* Vibrant orange (or try #ff6f61, #ff9800, etc.) */
+    font-weight: 600;
+}
+
+
+
+.category-card h3:hover {
+    color: #e91e63; /* Adds a hover color (pinkish tone) */
+    cursor: pointer;
+}
+
+
+
+        /* Override existing single-product-item styles that are no longer needed for categories */
+        /* This ensures that product-specific elements like price and add to cart buttons are hidden */
+        .category-item .product-price,
+        .category-item .cart-btn {
+            display: none; /* Hide price and add to cart button for categories */
+        }
+
+        /* Responsive adjustments for category cards */
+        @media (min-width: 992px) { /* Large screens (lg) - 4 items per row (12/3) */
+            .product-section .col-lg-3 {
+                flex: 0 0 25%;
+                max-width: 25%;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991.98px) { /* Medium screens (md) - 3 items per row (12/4) */
+            .product-section .col-md-4 {
+                flex: 0 0 33.333333%;
+                max-width: 33.333333%;
+            }
+        }
+
+        @media (max-width: 767.98px) { /* Small screens (sm) - 2 items per row (12/6) */
+            .product-section .col-sm-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+             .category-card {
+                padding: 2px; /* Slightly less padding on smaller screens */
+            }
+             .category-card .product-image img {
+    height: 300px; /* Bigger image on mobile */
+}
+
+            .category-card h3 {
+                font-size: 1.1rem; /* Adjust font size for mobile */
+            }
+        }
+        @media (max-width: 575.98px) { /* Extra small screens (xs) - 1 item per row */
+            .product-section .col-sm-6 { /* Still uses col-sm-6 but effectively takes full width due to wrapping */
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+
+        /* Removed opacity and visibility properties that were hiding the section initially. */
+        /* The section will now be visible by default. */
+
+
+        /* New CSS for sticky header logo shrink */
+        /* Default logo size (big on page load) */
+        .top-header-area .site-logo img {
+            height: 60px; /* Original size */
+            transition: height 0.3s ease-in-out; /* Smooth transition */
+        }
+        /* Smaller size when scrolled (sticky) */
+        .top-header-area.sticky-scrolled .site-logo img {
+            height: 40px; /* Smaller size when scrolled */
+        }
+
+        /* Styles for How It Works section */
+        .how-it-works-section .process-step {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            height: 100%; /* Ensure uniform height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* For arrow positioning */
+        }
+
+        .how-it-works-section .process-step .icon {
+            font-size: 3rem;
+            color: #4CAF50; /* Green color for icons */
+            margin-bottom: 15px;
+        }
+
+        .how-it-works-section .process-step h4 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 0;
+            font-weight: bold;
+        }
+
+        .how-it-works-section .process-arrow {
+            position: absolute;
+            top: 50%;
+            right: -30px; /* Adjust based on gap between cards */
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: #ffb52f; /* Orange color for arrows */
+            z-index: 1; /* Ensure arrow is above cards */
+        }
+
+        /* Hide arrow for the last step and on small screens */
+        .how-it-works-section .process-step:last-child .process-arrow,
+        @media (max-width: 991.98px) { /* Hide on medium and small screens */
+            .how-it-works-section .process-arrow {
+                display: none;
+            }
+        }
+
+        /* Adjust column padding/margin for arrows on large screens */
+        @media (min-width: 992px) {
+            .how-it-works-section .col-lg-3 {
+                padding-right: 40px; /* Make space for arrows */
+            }
+            .how-it-works-section .col-lg-3:last-child {
+                padding-right: 15px; /* No extra padding for the last column */
+            }
+        }
+
+        /* Styles for FAQ and Why Choose Us sections */
+        .info-card {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .info-card .icon {
+            font-size: 2.5rem;
+            color: #ffb52f; /* Orange color for icons */
+            margin-bottom: 15px;
+        }
+
+        .info-card h4 {
+            font-size: 1.2rem;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+    </style>
+
 </head>
 <body>
 	
@@ -43,14 +243,14 @@
     <!--PreLoader Ends-->
 	
 	<!-- header -->
-	<div class="top-header-area" id="sticker">
+	<div class="top-header-area" id="sticker"> <!-- Added id="sticker" to the top-header-area for easier JS targeting -->
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-sm-12 text-center">
 					<div class="main-menu-wrap">
 						<!-- logo -->
 						<div class="site-logo">
-							<a href="index.html">
+							<a href="#">
 								<img src="assets/img/logo.png" alt="">
 							</a>
 						</div>
@@ -60,41 +260,32 @@
 						<nav class="main-menu">
 							<ul>
 								<li class="current-list-item"><a href="#">Home</a>
+								</li>
+								<li><a href="#">About</a></li>
+								<li><a href="#">Products</a>
 									<ul class="sub-menu">
-										<li><a href="index.html">Static Home</a></li>
-										<li><a href="index_2.html">Slider Home</a></li>
+										<li><a href="#">404 page</a></li>
+										<li><a href="#">About</a></li>
+										<li><a href="#">Cart</a></li>
+										<li><a href="#">Check Out</a></li>
+										<li><a href="#">Contact</a></li>
+										<li><a href="#">News</a></li>
+										<li><a href="#">Shop</a></li>
 									</ul>
 								</li>
-								<li><a href="about.html">About</a></li>
-								<li><a href="#">Pages</a>
+								<li><a href="#">Services</a>
 									<ul class="sub-menu">
-										<li><a href="404.html">404 page</a></li>
-										<li><a href="about.html">About</a></li>
-										<li><a href="cart.html">Cart</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="contact.html">Contact</a></li>
-										<li><a href="news.html">News</a></li>
-										<li><a href="shop.html">Shop</a></li>
+										<li><a href="#">Shop</a></li>
+										<li><a href="#">Check Out</a></li>
+										<li><a href="#">Single Product</a></li>
+										<li><a href="#">Cart</a></li>
 									</ul>
 								</li>
-								<li><a href="news.html">News</a>
-									<ul class="sub-menu">
-										<li><a href="news.html">News</a></li>
-										<li><a href="single-news.html">Single News</a></li>
-									</ul>
-								</li>
-								<li><a href="contact.html">Contact</a></li>
-								<li><a href="shop.html">Shop</a>
-									<ul class="sub-menu">
-										<li><a href="shop.html">Shop</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="single-product.html">Single Product</a></li>
-										<li><a href="cart.html">Cart</a></li>
-									</ul>
-								</li>
+								<li><a href="#">Contact</a></li>
+								
 								<li>
 									<div class="header-icons">
-										<a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+										<a class="shopping-cart" href="#"><i class="fas fa-shopping-cart"></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 									</div>
 								</li>
@@ -109,7 +300,7 @@
 		</div>
 	</div>
 	<!-- end header -->
-
+	
 	<!-- search area -->
 	<div class="search-area">
 		<div class="container">
@@ -127,147 +318,265 @@
 			</div>
 		</div>
 	</div>
-	<!-- end search arewa -->
-	
-	<!-- breadcrumb-section -->
-	<div class="breadcrumb-section breadcrumb-bg">
+	<!-- end search area -->
+
+	<!-- Shop by Category Section -->
+<div class="category-section mt-100 section-bg-category hidden" id="shop-by-category-section">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
-					<div class="breadcrumb-text">
-						<p>Fresh and Organic</p>
-						<h1>Shop</h1>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end breadcrumb section -->
-
-	<!-- products -->
-	<div class="product-section mt-150 mb-150">
-		<div class="container">
-
-			<div class="row">
-                <div class="col-md-12">
-                    <div class="product-filters">
-                        <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".strawberry">Strawberry</li>
-                            <li data-filter=".berry">Berry</li>
-                            <li data-filter=".lemon">Lemon</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-			<div class="row product-lists">
-				<div class="col-lg-4 col-md-6 text-center strawberry">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="assets/img/products/product-img-1.jpg" alt=""></a>
-						</div>
-						<h3>Strawberry</h3>
-						<p class="product-price"><span>Per Kg</span> 85$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center berry">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="assets/img/products/product-img-2.jpg" alt=""></a>
-						</div>
-						<h3>Berry</h3>
-						<p class="product-price"><span>Per Kg</span> 70$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center lemon">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="assets/img/products/product-img-3.jpg" alt=""></a>
-						</div>
-						<h3>Lemon</h3>
-						<p class="product-price"><span>Per Kg</span> 35$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="assets/img/products/product-img-4.jpg" alt=""></a>
-						</div>
-						<h3>Avocado</h3>
-						<p class="product-price"><span>Per Kg</span> 50$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="assets/img/products/product-img-5.jpg" alt=""></a>
-						</div>
-						<h3>Green Apple</h3>
-						<p class="product-price"><span>Per Kg</span> 45$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center strawberry">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="assets/img/products/product-img-6.jpg" alt=""></a>
-						</div>
-						<h3>Strawberry</h3>
-						<p class="product-price"><span>Per Kg</span> 80$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					<div class="section-title">	
+						<h3><span class="orange-text">Shop by</span> Category</h3>
+						<p>Explore our extensive range of high-quality building materials by category.</p>
 					</div>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="col-lg-12 text-center">
-					<div class="pagination-wrap">
-						<ul>
-							<li><a href="#">Prev</a></li>
-							<li><a href="#">1</a></li>
-							<li><a class="active" href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">Next</a></li>
-						</ul>
+				<!-- Category 1: Hardwood Flooring -->
+				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
+					<div class="single-product-item category-item category-card">
+						<div class="product-image">
+							<a href="#"><img src="assets/img/hardwood-floorings.jpg" alt="Hardwood Flooring Category"></a>
+						</div>
+						<h3>Hardwood Flooring</h3>
+					</div>
+				</div>
+				<!-- Category 2: Vinyl Flooring -->
+				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
+					<div class="single-product-item category-item category-card">
+						<div class="product-image">
+							<a href="#"><img src="assets/img/vinyl-flooring.jpg" alt="Vinyl Flooring Category"></a>
+						</div>
+						<h3>Vinyl Flooring</h3>
+					</div>
+				</div>
+				<!-- Category 3: Laminate Flooring -->
+				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
+					<div class="single-product-item category-item category-card">
+						<div class="product-image">
+							<a href="#"><img src="assets/img/laminate-flooring.jpg" alt="Laminate Flooring Category"></a>
+						</div>
+						<h3>Laminate Flooring</h3>
+					</div>
+				</div>
+				<!-- Category 4: Stairs -->
+				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
+					<div class="single-product-item category-item category-card">
+						<div class="product-image">
+							<a href="#"><img src="assets/img/stairs.jpg" alt="Stairs Category"></a>
+						</div>
+						<h3>Stairs</h3>
+					</div>
+				</div>
+				<!-- Category 5: Tiles -->
+				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
+					<div class="single-product-item category-item category-card">
+						<div class="product-image">
+							<a href="#"><img src="assets/img/tiles.jpg" alt="Tiles Category"></a>
+						</div>
+						<h3>Tiles</h3>
+					</div>
+				</div>
+				<!-- Category 6: Home Renovations -->
+				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
+					<div class="single-product-item category-item category-card scroll-to-reno">
+						<div class="product-image">
+							<a href="#"><img src="assets/img/home-renovations.jpg" alt="Home Renovations Category"></a>
+						</div>
+<h3><a href="#home-renovations-section"  style="text-decoration: none; color: inherit;">Home Renovations</a></h3>
+					</div>
+				</div>
+				<!-- Category 7: Building Materials -->
+				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
+					<div class="single-product-item category-item category-card">
+						<div class="product-image">
+							<a href="#"><img src="assets/img/building-materials.jpg" alt="Building Materials Category"></a>
+						</div>
+						<h3>Building Materials</h3>
+					</div>
+				</div>
+				<!-- Category 8: Hardware -->
+				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
+					<div class="single-product-item category-item category-card">
+						<div class="product-image">
+							<a href="#"><img src="assets/img/hardware.jpg" alt="Hardware Category"></a>
+						</div>
+						<h3>Hardware</h3>
+					</div>
+				</div>
+				<!-- Category 9: Kitchen -->
+				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
+					<div class="single-product-item category-item category-card">
+						<div class="product-image">
+							<a href="#"><img src="assets/img/kitchen.jpg" alt="Kitchen Category"></a>
+						</div>
+						<h3>Kitchen</h3>
+					</div>
+				</div>
+				<!-- Category 10: Bathroom -->
+				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
+					<div class="single-product-item category-item category-card">
+						<div class="product-image">
+							<a href="#"><img src="assets/img/bathroom.jpg" alt="Bathroom Category"></a>
+						</div>
+						<h3>Bathroom</h3>
+					</div>
+				</div>
+				<!-- Category 11: Plumbing -->
+				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
+					<div class="single-product-item category-item category-card">
+						<div class="product-image">
+							<a href="#"><img src="assets/img/plumbing.jpg" alt="Plumbing Category"></a>
+						</div>
+						<h3>Plumbing</h3>
+					</div>
+				</div>
+				<!-- Category 12: Accessories of Flooring -->
+				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
+					<div class="single-product-item category-item category-card">
+						<div class="product-image">
+							<a href="#"><img src="assets/img/flooring-accesories.jpg" alt="Flooring Accessories Category"></a>
+						</div>
+						<h3>Accessories of Flooring</h3>
 					</div>
 				</div>
 			</div>
+			<!-- Removed the "More Products" button as categories are the new focus -->
 		</div>
 	</div>
-	<!-- end products -->
+	<!-- end Shop by Category Section -->
 
-	<!-- logo carousel -->
-	<div class="logo-carousel-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="logo-carousel-inner">
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/1.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/2.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/3.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/4.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/5.png" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end logo carousel -->
+	<!-- Home Renovations Section -->
+<div id="home-renovations-section" class="container mt-100">
+<!-- Exact Match: 6 Step Renovation Process -->
+<section class="renovation-steps-section py-5">
+  <div class="container text-center">
+    <h2 class="renovation-heading mb-5">
+      <span class="green-bracket">Our <span class="green-step">6 Step</span> Renovation Process</span>
+    </h2>
+    <div class="row g-4">
+      <!-- STEP 1 -->
+      <div class="col-md-4">
+        <div class="step-box">
+          <h5>What we do</h5>
+          <p>We offer high quality full house renovation services to residents and business owners across the Greater Toronto Area. Here is a step by step guide of the process we use to achieve these breathtaking rewards.</p>
+          <div class="step-number">01</div>
+        </div>
+      </div>
+      <!-- STEP 2 -->
+      <div class="col-md-4">
+        <div class="step-box">
+          <h5>Design, Selections + Pricing</h5>
+          <p>During the free estimate and consultation, we look, listen, & learn what is important to you with regards to this project. Our team of designers can anticipate and solve problems unique to your space and formulate solutions that will place you within your budget.</p>
+          <div class="step-number">02</div>
+        </div>
+      </div>
+      <!-- STEP 3 -->
+      <div class="col-md-4">
+        <div class="step-box">
+          <h5>Manage + Oversee Construction</h5>
+          <p>Let our design and construction team supervise the renovation and construction. We make sure your home or office is treated with respect and the worksite is cleaned up daily.</p>
+          <div class="step-number">03</div>
+        </div>
+      </div>
+      <!-- STEP 4 -->
+      <div class="col-md-4">
+        <div class="step-box">
+          <h5>Start demolition</h5>
+          <p>Once all the materials and finishes are picked, it is time to start the project. We bring in all the materials, throw out all the garbage and remove any unwanted materials from the site. The framing will have to be the first step of construction.</p>
+          <div class="step-number">04</div>
+        </div>
+      </div>
+      <!-- STEP 5 -->
+      <div class="col-md-4">
+        <div class="step-box">
+          <h5>Work behind the walls</h5>
+          <p>Once the framing is complete it is time for plumbing, electrical, and HVAC to be installed. Then comes drywall, taping and sanding.</p>
+          <div class="step-number">05</div>
+        </div>
+      </div>
+      <!-- STEP 6 -->
+      <div class="col-md-4">
+        <div class="step-box">
+          <h5>Add finishing touches</h5>
+          <p>The last step is the finishing touches, such as paint, tiling, and fixture installation. Then comes the final inspection where all the materials, craftsmanship, and fixtures get tested and inspected, down to every screw and detail.</p>
+          <div class="step-number">06</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+	
+    <div class="row">
+        <!-- Row 1 -->
+        <div class="col-md-6 mb-4">
+            <img src="assets/img/renovation1.jpg" alt="Renovation Image 1" class="img-fluid rounded shadow-sm">
+        </div>
+        <div class="col-md-6 mb-4">
+            <img src="assets/img/renovation2.jpg" alt="Renovation Image 2" class="img-fluid rounded shadow-sm">
+        </div>
+        <!-- Row 2 -->
+        <div class="col-md-6 mb-4">
+            <img src="assets/img/renovation3.jpg" alt="Renovation Image 3" class="img-fluid rounded shadow-sm">
+        </div>
+        <div class="col-md-6 mb-4">
+            <img src="assets/img/renovation4.jpg" alt="Renovation Image 4" class="img-fluid rounded shadow-sm">
+        </div>
+    </div>
+    <div class="text-center my-4">
+<a href="#estimate-form-section" class="btn btn-success btn-lg scroll-to-form">Get Free Estimate</a>
+    </div>
+</div>
+
+<!-- Free Estimate Form Section -->
+<div id="estimate-form-section" class="container mt-5 mb-5">
+  <div class="row align-items-center">
+    <!-- Form -->
+    <div class="col-md-6">
+      <h2 style="font-weight: bold;">
+        <span style="border: 5px solid #74db58; padding: 10px;">Get a Free Quote</span>
+      </h2>
+      <form>
+        <div class="form-group mt-3">
+          <input type="text" class="form-control" placeholder="Your Name">
+        </div>
+        <div class="form-group mt-3">
+          <input type="email" class="form-control" placeholder="Your E-mail">
+        </div>
+        <div class="form-group mt-3">
+          <input type="text" class="form-control" placeholder="+1 ___ ___ ____">
+        </div>
+        <div class="form-group mt-3">
+          <select class="form-control">
+            <option>Subject</option>
+            <option>Flooring</option>
+            <option>Renovation</option>
+            <option>Kitchen</option>
+          </select>
+        </div>
+        <div class="form-group mt-3">
+          <textarea class="form-control" rows="5" placeholder="Describe Your Project"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success mt-3 w-100" style="background-color: #74db58; border: none;">Submit</button>
+      </form>
+    </div>
+
+    <!-- Image -->
+    <div class="col-md-6 text-center mt-4 mt-md-0">
+      <div style="border: 10px solid #74db58; padding: 10px;">
+        <img src="assets/img/house-quote.png" alt="House Renovation" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 	<!-- footer -->
 	<div class="footer-area">
@@ -276,16 +585,16 @@
 				<div class="col-lg-3 col-md-6">
 					<div class="footer-box about-widget">
 						<h2 class="widget-title">About us</h2>
-						<p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
+						<p>At Toronto Mobile Flooring, we offer adiverse range of high-quality flooring options crafted with exclusive construction and workmanship</p>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6">
 					<div class="footer-box get-in-touch">
 						<h2 class="widget-title">Get in Touch</h2>
 						<ul>
-							<li>34/8, East Hukupara, Gifirtok, Sadan.</li>
-							<li>support@fruitkha.com</li>
-							<li>+00 111 222 3333</li>
+							<li>Email : info@torontomobileflooring.com</li>
+							<li>Address : London, Ontario</li>
+							<li>Phone : +1 (226) 499-5290</li>
 						</ul>
 					</div>
 				</div>
@@ -293,11 +602,11 @@
 					<div class="footer-box pages">
 						<h2 class="widget-title">Pages</h2>
 						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="about.html">About</a></li>
-							<li><a href="services.html">Shop</a></li>
-							<li><a href="news.html">News</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="#">Home</a></li>
+							<li><a href="#">About</a></li>
+							<li><a href="#">Products</a></li>
+							<li><a href="#">Services</a></li>
+							<li><a href="#">Contact</a></li>
 						</ul>
 					</div>
 				</div>
@@ -305,7 +614,7 @@
 					<div class="footer-box subscribe">
 						<h2 class="widget-title">Subscribe</h2>
 						<p>Subscribe to our mailing list to get the latest updates.</p>
-						<form action="index.html">
+						<form action="#">
 							<input type="email" placeholder="Email">
 							<button type="submit"><i class="fas fa-paper-plane"></i></button>
 						</form>
@@ -321,18 +630,16 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
-					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.<br>
-						Distributed By - <a href="https://themewagon.com/">Themewagon</a>
-					</p>
+					
 				</div>
 				<div class="col-lg-6 text-right col-md-12">
 					<div class="social-icons">
 						<ul>
-							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+							<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+							<li><a href="#"><i class="fab fa-dribbble"></i></a></li>
 						</ul>
 					</div>
 				</div>
@@ -340,6 +647,85 @@
 		</div>
 	</div>
 	<!-- end copyright -->
+
+	<a href="#" id="scrollToTop" title="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</a>
+<script>
+
+
+  const scrollBtn = document.getElementById("scrollToTop");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  });
+
+  scrollBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll("#shop-by-category-section .category-card");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+
+          // Stagger effect
+          setTimeout(() => {
+            card.classList.add("animate-in");
+          }, card.dataset.delay);
+
+          observer.unobserve(card);
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    cards.forEach((card, index) => {
+      // Add delay using data-attribute
+      card.dataset.delay = index * 150;
+      observer.observe(card);
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const link = document.querySelector(".scroll-to-reno");
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const target = document.getElementById("home-renovations-section");
+      const headerHeight = 80; // Adjust based on your sticky header height
+
+      if (target) {
+        const targetY = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        window.scrollTo({ top: targetY, behavior: "smooth" });
+      }
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const estimateLink = document.querySelector(".scroll-to-form");
+    estimateLink?.addEventListener("click", function (e) {
+      e.preventDefault();
+      const formSection = document.getElementById("estimate-form-section");
+      if (formSection) {
+        const yOffset = -60; // adjust for sticky header
+        const y = formSection.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    });
+  });
+</script>
 	
 	<!-- jquery -->
 	<script src="assets/js/jquery-1.11.3.min.js"></script>
@@ -361,6 +747,7 @@
 	<script src="assets/js/sticker.js"></script>
 	<!-- main js -->
 	<script src="assets/js/main.js"></script>
+
 
 </body>
 </html>

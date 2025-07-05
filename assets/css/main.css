@@ -2793,3 +2793,54 @@ table.order-details tbody td {
     opacity: 1;
     transform: scale(1.1);
 }
+.renovation-heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.green-step {
+  color: #6ad14c;
+  font-weight: 700;
+}
+
+.green-bracket {
+  display: inline-block;
+  border: 6px solid #6ad14c;
+  padding: 10px 20px;
+  font-size: 2.2rem;
+  line-height: 1.4;
+  font-weight: bold;
+}
+
+.step-box {
+  background: #fff;
+  padding: 25px 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  height: 100%;
+  position: relative;
+}
+
+.step-box h5 {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.step-box p {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 50px;
+}
+
+.step-number {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #6ad14c;
+}
+
+
