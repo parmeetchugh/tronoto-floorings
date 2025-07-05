@@ -255,6 +255,76 @@
             margin-bottom: 15px; /* Spacing below the icon */
             fill: #4CAF50; /* Green color for the SVG */
         }
+
+        /* Service Areas Section Styling */
+        .service-areas-section {
+            background-color: #f8f8f8; /* Light background for the section */
+            padding: 60px 0; /* Add some vertical padding */
+        }
+
+        .service-areas-section .service-heading {
+            color: #de701d; /* Orange color for the heading */
+            font-weight: bold;
+            font-size: 2.2rem;
+            position: relative; /* For positioning the square */
+            display: inline-block; /* To make the square align with text */
+            padding-left: 20px; /* Space for the square */
+        }
+
+        .service-areas-section .orange-square {
+            width: 35px; /* Size of the square */
+            height: 35px;
+            border: 3px solid #de701d; /* Orange border */
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-right: 15px; /* Space between square and text */
+        }
+
+        .service-areas-section .area-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center the items */
+            gap: 15px; /* Gap between items */
+            margin-top: 30px;
+        }
+
+        .service-areas-section .area-list span {
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+            cursor: default; /* Not interactive, so default cursor */
+            white-space: nowrap; /* Prevent breaking words */
+        }
+
+        .service-areas-section .area-list span:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive adjustments for service areas list */
+        @media (max-width: 767.98px) {
+            .service-areas-section .area-list {
+                gap: 10px; /* Smaller gap on mobile */
+            }
+            .service-areas-section .area-list span {
+                padding: 8px 15px; /* Smaller padding on mobile */
+                font-size: 0.9rem;
+            }
+            .service-areas-section .service-heading {
+                font-size: 1.8rem;
+                padding-left: 15px;
+            }
+            .service-areas-section .orange-square {
+                width: 30px;
+                height: 30px;
+            }
+        }
     </style>
 
 </head>
@@ -687,11 +757,13 @@
 
     <!-- Heading -->
     <div class="d-flex align-items-center justify-content-center mb-4">
-      <div class="green-square me-3"></div>
+      <!-- Changed from green-square to orange-square and adjusted styling -->
+      <div class="orange-square me-3"></div>
       <h2 class="service-heading m-0">Service Areas</h2>
     </div>
 
     <!-- Area List -->
+    <!-- Updated to use flexbox for better layout and responsiveness -->
     <div class="area-list mt-3">
       <span>Ancaster</span>
       <span>Bolton</span>
@@ -739,7 +811,7 @@
       <span>Hamilton</span>
       <span>Mono</span>
       <span>Angus</span>
-      <span class="d-block mt-2">East Gwillimbury</span>
+      <span>East Gwillimbury</span>
     </div>
   </div>
 </section>
