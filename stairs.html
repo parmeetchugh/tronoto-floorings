@@ -4,11 +4,11 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Explore a wide range of flooring, plumbing, and building materials categories from Toronto Floorings and Building Supplies.">
-	<meta name="keywords" content="Hardwood flooring, Vinyl Flooring, Laminate Flooring, Stairs, Tiles, Home Renovations, Building Materials, Hardware, Kitchen, Bathroom, Plumbing, Accessories, Toronto, Canada, building supplies, categories">
+	<meta name="description" content="Explore our stairs projects and services from Toronto Floorings and Building Supplies.">
+	<meta name="keywords" content="Stairs, Stair Projects, Stair Renovation, Building Materials, Toronto, Canada, building supplies, projects">
 
 	<!-- title -->
-	<title>Toronto Floorings & Building Supplies</title>
+	<title>Stairs Projects - Toronto Floorings & Building Supplies</title>
 
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
@@ -34,94 +34,6 @@
         body {
             font-family: 'Times New Roman', Times, serif;
         }
-
-        /* Custom styles for category cards to match theme */
-        .category-card {
-            background-color: #fff;
-            padding: 5px; /* Adjusted padding for a more compact card */
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%; /* Ensure uniform height for all cards in a row */
-            display: flex;
-            flex-direction: column;
-            text-align: center; /* Center content within the card */
-        }
-
-        .category-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-        }
-
-       .category-card .product-image img {
-            border-radius: 4px;
-            object-fit: cover;
-            width: 100%;
-            height: 250px; /* Increased height */
-            max-height: 320px;
-        }
-
-       .category-card h3 {
-            font-size: 1.25rem;
-            margin-top: 5px;
-            margin-bottom: 0px;
-            color: #de701d; /* Vibrant orange (or try #ff6f61, #ff9800, etc.) */
-            font-weight: 600;
-        }
-
-        .category-card h3:hover {
-            color: #e91e63; /* Adds a hover color (pinkish tone) */
-            cursor: pointer;
-        }
-
-        /* Override existing single-product-item styles that are no longer needed for categories */
-        /* This ensures that product-specific elements like price and add to cart buttons are hidden */
-        .category-item .product-price,
-        .category-item .cart-btn {
-            display: none; /* Hide price and add to cart button for categories */
-        }
-
-        /* Responsive adjustments for category cards */
-        @media (min-width: 992px) { /* Large screens (lg) - 4 items per row (12/3) */
-            .product-section .col-lg-3 {
-                flex: 0 0 25%;
-                max-width: 25%;
-            }
-        }
-
-        @media (min-width: 768px) and (max-width: 991.98px) { /* Medium screens (md) - 3 items per row (12/4) */
-            .product-section .col-md-4 {
-                flex: 0 0 33.333333%;
-                max-width: 33.333333%;
-            }
-        }
-
-        @media (max-width: 767.98px) { /* Small screens (sm) - 2 items per row (12/6) */
-            .product-section .col-sm-6 {
-                flex: 0 0 50%;
-                max-width: 50%;
-            }
-             .category-card {
-                padding: 2px; /* Slightly less padding on smaller screens */
-            }
-             .category-card .product-image img {
-                height: 300px; /* Bigger image on mobile */
-            }
-
-            .category-card h3 {
-                font-size: 1.1rem; /* Adjust font size for mobile */
-            }
-        }
-        @media (max-width: 575.98px) { /* Extra small screens (xs) - 1 item per row */
-            .product-section .col-sm-6 { /* Still uses col-sm-6 but effectively takes full width due to wrapping */
-                flex: 0 0 100%;
-                max-width: 100%;
-            }
-        }
-
-        /* Removed opacity and visibility properties that were hiding the section initially. */
-        /* The section will now be visible by default. */
-
 
         /* New CSS for sticky header logo shrink */
         /* Default logo size (big on page load) */
@@ -471,134 +383,124 @@
 	</div>
 	<!-- end search area -->
 
-	<!-- Shop by Category Section -->
-<div class="category-section mt-150 section-bg-category hidden" id="shop-by-category-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 offset-lg-2 text-center">
-					<div class="section-title">	
-						<h3><span class="orange-text">Shop by</span> Category</h3>
-						<p>Explore our extensive range of high-quality building materials by category.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<!-- Category 1: Hardwood Flooring -->
-				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
-					<div class="single-product-item category-item category-card">
-						<div class="product-image">
-							<a href="#"><img src="assets/img/hardwood-floorings.jpg" alt="Hardwood Flooring Category"></a>
-						</div>
-						<h3>Hardwood Flooring</h3>
-					</div>
-				</div>
-				<!-- Category 2: Vinyl Flooring -->
-				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
-					<div class="single-product-item category-item category-card">
-						<div class="product-image">
-							<a href="#"><img src="assets/img/vinyl-flooring.jpg" alt="Vinyl Flooring Category"></a>
-						</div>
-						<h3>Vinyl Flooring</h3>
-					</div>
-				</div>
-				<!-- Category 3: Laminate Flooring -->
-				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
-					<div class="single-product-item category-item category-card">
-						<div class="product-image">
-							<a href="#"><img src="assets/img/laminate-flooring.jpg" alt="Laminate Flooring Category"></a>
-						</div>
-						<h3>Laminate Flooring</h3>
-					</div>
-				</div>
-				<!-- Category 4: Stairs -->
-				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
-					<div class="single-product-item category-item category-card">
-						<div class="product-image">
-							<a href="stairs.html"><img src="assets/img/stairs.jpg" alt="Stairs Category"></a>
-						</div>
-						<h3><a href="stairs.html" style="text-decoration: none; color: inherit;">Stairs</a></h3>
-					</div>
-				</div>
-				<!-- Category 5: Tiles -->
-				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
-					<div class="single-product-item category-item category-card">
-						<div class="product-image">
-							<a href="#"><img src="assets/img/tiles.jpg" alt="Tiles Category"></a>
-						</div>
-						<h3>Tiles</h3>
-					</div>
-				</div>
-				<!-- Category 6: Home Renovations -->
-				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
-					<div class="single-product-item category-item category-card scroll-to-reno">
-						<div class="product-image">
-							<!-- Updated link to renovations.html -->
-							<a href="renovations.html"><img src="assets/img/home-renovations.jpg" alt="Home Renovations Category"></a>
-						</div>
-						<!-- Updated link to renovations.html -->
-						<h3><a href="renovations.html"  style="text-decoration: none; color: inherit;">Home Renovations</a></h3>
-					</div>
-				</div>
-				<!-- Category 7: Building Materials -->
-				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
-					<div class="single-product-item category-item category-card">
-						<div class="product-image">
-							<a href="#"><img src="assets/img/building-materials.jpg" alt="Building Materials Category"></a>
-						</div>
-						<h3>Building Materials</h3>
-					</div>
-				</div>
-				<!-- Category 8: Hardware -->
-				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
-					<div class="single-product-item category-item category-card">
-						<div class="product-image">
-							<a href="#"><img src="assets/img/hardware.jpg" alt="Hardware Category"></a>
-						</div>
-						<h3>Hardware</h3>
-					</div>
-				</div>
-				<!-- Category 9: Kitchen -->
-				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
-					<div class="single-product-item category-item category-card">
-						<div class="product-image">
-							<a href="#"><img src="assets/img/kitchen.jpg" alt="Kitchen Category"></a>
-						</div>
-						<h3>Kitchen</h3>
-					</div>
-				</div>
-				<!-- Category 10: Bathroom -->
-				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
-					<div class="single-product-item category-item category-card">
-						<div class="product-image">
-							<a href="#"><img src="assets/img/bathroom.jpg" alt="Bathroom Category"></a>
-						</div>
-						<h3>Bathroom</h3>
-					</div>
-				</div>
-				<!-- Category 11: Plumbing -->
-				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
-					<div class="single-product-item category-item category-card">
-						<div class="product-image">
-							<a href="#"><img src="assets/img/plumbing.jpg" alt="Plumbing Category"></a>
-						</div>
-						<h3>Plumbing</h3>
-					</div>
-				</div>
-				<!-- Category 12: Accessories of Flooring -->
-				<div class="col-lg-3 col-md-4 col-sm-6 mb-4 text-center">
-					<div class="single-product-item category-item category-card">
-						<div class="product-image">
-							<a href="#"><img src="assets/img/flooring-accesories.jpg" alt="Flooring Accessories Category"></a>
-						</div>
-						<h3>Accessories of Flooring</h3>
-					</div>
-				</div>
-			</div>
-			<!-- Removed the "More Products" button as categories are the new focus -->
-		</div>
+	<!-- Stairs Projects Section -->
+<div id="stairs-projects-section" class="container mt-150">
+    <div class="row mt-5">
+		 <div class="container text-center">
+		 <h2 class="renovation-heading mb-5">
+      <span class="green-bracket">Our <span class="orange-step">Stairs</span> Projects</span>
+    </h2>
 	</div>
-	<!-- end Shop by Category Section -->
+        <!-- Row 1 -->
+        <div class="col-md-6 mb-4">
+            <div class="project-img-container">
+                <img src="assets/img/stairs-1.jpg" alt="Stairs Project Image 1">
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="project-img-container">
+                <img src="assets/img/stairs-2.jpg" alt="Stairs Project Image 2">
+            </div>
+        </div>
+        <!-- Row 2 -->
+        <div class="col-md-6 mb-4">
+            <div class="project-img-container">
+                <img src="assets/img/stairs-3.jpg" alt="Stairs Project Image 3">
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="project-img-container">
+                <img src="assets/img/stairs-4.jpg" alt="Stairs Project Image 4">
+            </div>
+        </div>
+         <!-- Row 3 -->
+        <div class="col-md-6 mb-4">
+            <div class="project-img-container">
+                <img src="https://placehold.co/600x400/FFB52F/FFFFFF?text=Stairs+Project+5" alt="Stairs Project Image 5">
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="project-img-container">
+                <img src="https://placehold.co/600x400/FFB52F/FFFFFF?text=Stairs+Project+6" alt="Stairs Project Image 6">
+            </div>
+        </div>
+         <!-- Row 4 -->
+        <div class="col-md-6 mb-4">
+            <div class="project-img-container">
+                <img src="https://placehold.co/600x400/FFB52F/FFFFFF?text=Stairs+Project+7" alt="Stairs Project Image 7">
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="project-img-container">
+                <img src="https://placehold.co/600x400/FFB52F/FFFFFF?text=Stairs+Project+8" alt="Stairs Project Image 8">
+            </div>
+        </div>
+         <!-- Row 5 -->
+        <div class="col-md-6 mb-4">
+            <div class="project-img-container">
+                <img src="https://placehold.co/600x400/FFB52F/FFFFFF?text=Stairs+Project+9" alt="Stairs Project Image 9">
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="project-img-container">
+                <img src="https://placehold.co/600x400/FFB52F/FFFFFF?text=Stairs+Project+10" alt="Stairs Project Image 10">
+            </div>
+        </div>
+		
+    </div>
+    <div class="text-center mt-5">
+      <a href="#estimate-form-section" class="btn btn-success px-5 py-2" style="background-color: #f57c00; border: none;">
+        Get Free Estimate
+      </a>
+    </div>
+</div>
+
+<!-- Free Estimate Form Section -->
+ <section class="mt-100">
+<div id="estimate-form-section" class="container mt-15 mb-5 background-section">
+  <div class="row align-items-center">
+    <!-- Form -->
+    <div class="col-md-6">
+      <h2 style="font-weight: bold;">
+        <span style="border: 5px solid #f57c00; padding: 10px;">Get a <span class="orange-step">Free</span> Quote for Stairs</span>
+      </h2>
+      <form>
+        <div class="form-group mt-3">
+          <input type="text" class="form-control" placeholder="Your Name">
+        </div>
+        <div class="form-group mt-3">
+          <input type="email" class="form-control" placeholder="Your E-mail">
+        </div>
+        <div class="form-group mt-3">
+          <input type="text" class="form-control" placeholder="+1 ___ ___ ____">
+        </div>
+        <div class="form-group mt-3">
+          <select class="form-control">
+            <option>Subject</option>
+            <option>Stairs</option>
+            <option>Flooring</option>
+            <option>Renovation</option>
+            <option>Kitchen</option>
+          </select>
+        </div>
+        <div class="form-group mt-3">
+          <textarea class="form-control" rows="5" placeholder="Describe Your Stairs Project"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success mt-3 w-100" style="background-color:#f57c00; border: none;">Submit</button>
+      </form>
+    </div>
+
+    <!-- Image -->
+    <div class="col-md-6 text-center mt-4 mt-md-0">
+      <div style="border: 10px solid #f57c00; padding: 10px;">
+        <img src="assets/img/free-estimate.jpg" alt="Stairs Project" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
 
 <!-- Service Areas Section -->
 <section class="service-areas-section py-5" id="service-area">
@@ -740,6 +642,14 @@
   <i class="fas fa-arrow-up"></i>
 </a>
 
+<!-- Image Modal Structure -->
+<div class="image-modal-overlay" id="imageModal">
+    <div class="image-modal-content">
+        <span class="image-modal-close">&times;</span>
+        <img src="" alt="Full size stairs project image" id="fullSizeImage">
+    </div>
+</div>
+
 <script>
 
 
@@ -758,37 +668,63 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-
-
-
   document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll("#shop-by-category-section .category-card");
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const card = entry.target;
-
-          // Stagger effect
-          setTimeout(() => {
-            card.classList.add("animate-in");
-          }, card.dataset.delay);
-
-          observer.unobserve(card);
-        }
-      });
-    }, {
-      threshold: 0.2
-    });
-
-    cards.forEach((card, index) => {
-      // Add delay using data-attribute
-      card.dataset.delay = index * 150;
-      observer.observe(card);
+    const estimateLink = document.querySelector(".scroll-to-form");
+    estimateLink?.addEventListener("click", function (e) {
+      e.preventDefault();
+      const formSection = document.getElementById("estimate-form-section");
+      if (formSection) {
+        const yOffset = -60; // adjust for sticky header
+        const y = formSection.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
     });
   });
 
-  
+  document.addEventListener("DOMContentLoaded", function () {
+    const imageModal = document.getElementById('imageModal');
+    const fullSizeImage = document.getElementById('fullSizeImage');
+    const closeButton = document.querySelector('.image-modal-close');
+    const projectImages = document.querySelectorAll('.project-img-container img');
+
+    // Function to open the modal
+    function openModal(imageSrc) {
+        fullSizeImage.src = imageSrc;
+        imageModal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        imageModal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+        fullSizeImage.src = ''; // Clear image src
+    }
+
+    // Add click event listeners to all project images
+    projectImages.forEach(image => {
+        image.addEventListener('click', function() {
+            openModal(this.src);
+        });
+    });
+
+    // Add click event listener to the close button
+    closeButton.addEventListener('click', closeModal);
+
+    // Close modal if clicked outside the image content
+    imageModal.addEventListener('click', function(e) {
+        if (e.target === imageModal) {
+            closeModal();
+        }
+    });
+
+    // Close modal on escape key press
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && imageModal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+  });
 </script>
 	
 	<!-- jquery -->
