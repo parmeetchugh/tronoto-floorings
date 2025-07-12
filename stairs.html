@@ -300,62 +300,79 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
-            display: none; /* Hidden by default */
+            backdrop-filter: blur(8px); /* Blur effect */
+            display: flex;
             justify-content: center;
             align-items: center;
             z-index: 9999; /* High z-index to be on top */
-            cursor: pointer; /* Indicates clickable to close */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         .image-modal-overlay.active {
-            display: flex; /* Show when active */
+            opacity: 1;
+            visibility: visible;
         }
 
         .image-modal-content {
             position: relative;
-            max-width: 90%;
-            max-height: 90vh; /* Max height relative to viewport height */
-            background-color: #fff; /* White background for the content area */
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            /* Changed to 90% of viewport width/height to give some padding */
+            max-width: 90vw;
+            max-height: 90vh;
+            background-color: transparent;
+            padding: 0;
+            box-shadow: none;
+            border-radius: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            cursor: default; /* Reset cursor for content */
+            cursor: default;
         }
 
         .image-modal-content img {
+            /* Ensure image scales down and maintains aspect ratio within the modal content */
             max-width: 100%;
             max-height: 100%;
-            display: block; /* Remove extra space below image */
-            object-fit: contain; /* Ensure the entire image is visible within the bounds */
-            border-radius: 4px; /* Slightly rounded corners for the image inside the modal */
+            width: auto; /* Allow natural width */
+            height: auto; /* Allow natural height */
+            object-fit: contain; /* Important: Scales the image to fit the content box, preserving aspect ratio */
+            display: block;
+            border-radius: 8px; /* Apply border-radius directly to the image if desired */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Apply shadow directly to the image */
         }
 
         .image-modal-close {
             position: absolute;
-            top: 10px;
+            top: 20px;
             right: 20px;
-            color: #fff; /* White close button */
+            color: #fff;
             font-size: 30px;
-            font-weight: bold;
             cursor: pointer;
-            z-index: 10000; /* Ensure close button is on top of everything */
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better visibility */
+            z-index: 10001; /* Ensure close button is above the image */
+            background-color: rgba(0, 0, 0, 0.5);
             border-radius: 50%;
             width: 40px;
             height: 40px;
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: background-color 0.3s ease;
         }
 
-        .image-modal-close:hover,
-        .image-modal-close:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
+        .image-modal-close:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Responsive adjustments for modal */
+        @media (max-width: 767.98px) {
+            .image-modal-close {
+                top: 10px;
+                right: 10px;
+                font-size: 24px;
+                width: 35px;
+                height: 35px;
+            }
         }
     </style>
 
@@ -450,11 +467,11 @@
 	<!-- end search area -->
 
 	<!-- Stairs Projects Section -->
-<div id="stairs-projects-section" class="container mt-100">
+<div id="stairs-projects-section" class="container mt-150">
     <div class="row mt-5">
 		 <div class="container text-center">
 		 <h2 class="renovation-heading mb-5">
-      <span class="green-bracket">Our <span class="orange-step">Stairs</span> Projects</span>
+      <span class="green-bracket">Our <span class="orange-step">Projects</span>
     </h2>
 	</div>
         <!-- Row 1 -->
@@ -528,7 +545,7 @@
     <!-- Form -->
     <div class="col-md-6">
       <h2 style="font-weight: bold;">
-        <span style="border: 5px solid #f57c00; padding: 10px;">Get a <span class="orange-step">Free</span> Quote for Stairs</span>
+        <span style="border: 5px solid #f57c00; padding: 10px;">Get a <span class="orange-step">Free</span> Quote </span>
       </h2>
       <form>
         <div class="form-group mt-3">
