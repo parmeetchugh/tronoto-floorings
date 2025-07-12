@@ -1007,7 +1007,7 @@
     </section>
 
     <!-- 3. Products Listing Section -->
-    <section class="products-listing-section">
+    <section class="products-listing-section" id="products-section"> <!-- Added id="products-section" here -->
         <div class="container">
             <h2 class="section-title">Our Products</h2>
             <div class="row" id="products-container">
@@ -1937,6 +1937,7 @@
     const priceFilter = document.getElementById('priceFilter');
     const sortFilter = document.getElementById('sortFilter');
     const clearFiltersBtn = document.getElementById('clearFiltersBtn'); // Get the new button
+    const productsSection = document.getElementById('products-section'); // Get the products section
 
     let currentFilters = {
         category: 'all',
@@ -2057,6 +2058,11 @@
             currentFilters.category = selectedCategory;
             categoryFilter.value = selectedCategory; // Update the dropdown
             applyFiltersAndSort();
+
+            // Scroll to the products section after filtering
+            if (productsSection) {
+                productsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
 
             // Optional: Add/remove active class for visual feedback
             categoryItems.forEach(cat => cat.classList.remove('active'));
