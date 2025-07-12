@@ -233,6 +233,12 @@
             border-radius: 10px; /* Rounded corners for the container */
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow */
             cursor: pointer; /* Indicate that images are clickable */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for smooth hover effect */
+        }
+
+        .project-img-container:hover {
+            transform: scale(1.03); /* Slightly enlarge on hover */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
         }
 
         .project-img-container img {
