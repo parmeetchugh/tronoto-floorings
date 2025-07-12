@@ -223,7 +223,7 @@
 
         .service-areas-section .area-list span:hover {
             transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 44px 12px rgba(0, 0, 0, 0.1);
         }
 
         /* Responsive adjustments for service areas list */
@@ -290,6 +290,72 @@
             .main-menu ul li a:hover {
                 color: #e91e63; /* Pinkish tone on hover for mobile */
             }
+        }
+
+        /* Image Modal (Lightbox) Styles */
+        .image-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* High z-index to be on top */
+            cursor: pointer; /* Indicates clickable to close */
+        }
+
+        .image-modal-overlay.active {
+            display: flex; /* Show when active */
+        }
+
+        .image-modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh; /* Max height relative to viewport height */
+            background-color: #fff; /* White background for the content area */
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: default; /* Reset cursor for content */
+        }
+
+        .image-modal-content img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block; /* Remove extra space below image */
+            object-fit: contain; /* Ensure the entire image is visible within the bounds */
+            border-radius: 4px; /* Slightly rounded corners for the image inside the modal */
+        }
+
+        .image-modal-close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: #fff; /* White close button */
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000; /* Ensure close button is on top of everything */
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better visibility */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-modal-close:hover,
+        .image-modal-close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 
@@ -384,7 +450,7 @@
 	<!-- end search area -->
 
 	<!-- Stairs Projects Section -->
-<div id="stairs-projects-section" class="container mt-150">
+<div id="stairs-projects-section" class="container mt-100">
     <div class="row mt-5">
 		 <div class="container text-center">
 		 <h2 class="renovation-heading mb-5">
@@ -416,34 +482,34 @@
          <!-- Row 3 -->
         <div class="col-md-6 mb-4">
             <div class="project-img-container">
-                <img src="https://placehold.co/600x400/FFB52F/FFFFFF?text=Stairs+Project+5" alt="Stairs Project Image 5">
+                <img src="assets/img/stairs-5.jpg" alt="Stairs Project Image 5">
             </div>
         </div>
         <div class="col-md-6 mb-4">
             <div class="project-img-container">
-                <img src="https://placehold.co/600x400/FFB52F/FFFFFF?text=Stairs+Project+6" alt="Stairs Project Image 6">
+                <img src="assets/img/stairs-6.jpg" alt="Stairs Project Image 6">
             </div>
         </div>
          <!-- Row 4 -->
         <div class="col-md-6 mb-4">
             <div class="project-img-container">
-                <img src="https://placehold.co/600x400/FFB52F/FFFFFF?text=Stairs+Project+7" alt="Stairs Project Image 7">
+                <img src="assets/img/stairs-7.jpg" alt="Stairs Project Image 7">
             </div>
         </div>
         <div class="col-md-6 mb-4">
             <div class="project-img-container">
-                <img src="https://placehold.co/600x400/FFB52F/FFFFFF?text=Stairs+Project+8" alt="Stairs Project Image 8">
+                <img src="assets/img/stairs-8.jpg" alt="Stairs Project Image 8">
             </div>
         </div>
          <!-- Row 5 -->
         <div class="col-md-6 mb-4">
             <div class="project-img-container">
-                <img src="https://placehold.co/600x400/FFB52F/FFFFFF?text=Stairs+Project+9" alt="Stairs Project Image 9">
+                <img src="assets/img/stairs-9.jpg" alt="Stairs Project Image 9">
             </div>
         </div>
         <div class="col-md-6 mb-4">
             <div class="project-img-container">
-                <img src="https://placehold.co/600x400/FFB52F/FFFFFF?text=Stairs+Project+10" alt="Stairs Project Image 10">
+                <img src="assets/img/stairs-10.jpg" alt="Stairs Project Image 10">
             </div>
         </div>
 		
@@ -651,10 +717,8 @@
 </div>
 
 <script>
-
-
+  // Scroll to top button functionality
   const scrollBtn = document.getElementById("scrollToTop");
-
   window.addEventListener("scroll", () => {
     if (window.scrollY > 300) {
       scrollBtn.style.display = "block";
@@ -662,12 +726,12 @@
       scrollBtn.style.display = "none";
     }
   });
-
   scrollBtn.addEventListener("click", function (e) {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
+  // Estimate form scroll functionality (if applicable)
   document.addEventListener("DOMContentLoaded", function () {
     const estimateLink = document.querySelector(".scroll-to-form");
     estimateLink?.addEventListener("click", function (e) {
@@ -681,11 +745,13 @@
     });
   });
 
+  // Image Modal (Lightbox) functionality
   document.addEventListener("DOMContentLoaded", function () {
     const imageModal = document.getElementById('imageModal');
     const fullSizeImage = document.getElementById('fullSizeImage');
     const closeButton = document.querySelector('.image-modal-close');
     const projectImages = document.querySelectorAll('.project-img-container img');
+    const imageModalContent = document.querySelector('.image-modal-content'); // Get the content div
 
     // Function to open the modal
     function openModal(imageSrc) {
@@ -711,11 +777,18 @@
     // Add click event listener to the close button
     closeButton.addEventListener('click', closeModal);
 
-    // Close modal if clicked outside the image content
+    // Close modal if clicked outside the image content (on the overlay)
     imageModal.addEventListener('click', function(e) {
+        // Only close if the click target is the overlay itself, not the content inside
         if (e.target === imageModal) {
             closeModal();
         }
+    });
+
+    // Prevent clicks on the modal content (image, close button) from propagating to the overlay
+    // This ensures that clicking on the image or close button does not accidentally trigger the overlay close
+    imageModalContent.addEventListener('click', function(e) {
+        e.stopPropagation();
     });
 
     // Close modal on escape key press
