@@ -141,7 +141,7 @@
             overflow: hidden; /* Hide overflowing parts of the image */
             display: flex; /* Use flexbox to center the image */
             justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
+            align-items: center;
             border-radius: 10px; /* Rounded corners for the container */
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow */
             cursor: pointer; /* Indicate that images are clickable */
@@ -177,8 +177,8 @@
 
         /* Service Areas Section Styling */
         .service-areas-section {
-            background-color: #f8f8f8; /* Light background for the section */
             padding: 60px 0; /* Add some vertical padding */
+            background-color: #f8f8f8; /* Light background for the section */
         }
 
         .service-areas-section .service-heading {
@@ -223,7 +223,7 @@
 
         .service-areas-section .area-list span:hover {
             transform: translateY(-3px);
-            box-shadow: 0 44px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         /* Responsive adjustments for service areas list */
@@ -338,8 +338,8 @@
             height: auto; /* Allow natural height */
             object-fit: contain; /* Important: Scales the image to fit the content box, preserving aspect ratio */
             display: block;
-            border-radius: 8px; /* Apply border-radius directly to the image if desired */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Apply shadow directly to the image */
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .image-modal-close {
@@ -374,11 +374,249 @@
                 height: 35px;
             }
         }
+
+        /* New Styles for Stairs Categories Section */
+        .stairs-categories-section {
+            padding: 80px 0;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+
+        .stairs-categories-section .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .stairs-categories-section .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -15px;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #ffb52f; /* Orange accent */
+            border-radius: 2px;
+        }
+
+        .stairs-categories-section .category-item {
+            margin-bottom: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 15px; /* Added padding around image and text */
+        }
+
+        .stairs-categories-section .category-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .stairs-categories-section .category-item img {
+            width: 100%;
+            height: 150px; /* Fixed height for category images */
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .stairs-categories-section .category-item p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        /* New Styles for Product Filters Section */
+        .product-filters-section {
+            padding: 40px 0;
+            background-color: #ffffff;
+            border-bottom: 1px solid #eee;
+        }
+
+        .product-filters-section .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start; /* Align to start */
+            align-items: center;
+            gap: 15px;
+        }
+
+        .product-filters-section .filter-dropdown select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            font-size: 0.95rem;
+            color: #555;
+            appearance: none; /* Remove default arrow */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2C197.393L146.2%2C56.593L5.4%2C197.393h281.6z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 12px;
+            cursor: pointer;
+        }
+
+        .product-filters-section .filter-dropdown select:focus {
+            outline: none;
+            border-color: #ffb52f;
+            box-shadow: 0 0 0 0.2rem rgba(255, 181, 47, 0.25);
+        }
+
+        .product-filters-section .btn-primary {
+            background-color: #ffb52f;
+            border-color: #ffb52f;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .product-filters-section .btn-primary:hover {
+            background-color: #de701d;
+            border-color: #de701d;
+        }
+
+        .product-filters-section .sort-by {
+            margin-left: auto; /* Pushes sort-by to the right */
+        }
+
+        @media (max-width: 767.98px) {
+            .product-filters-section .filter-bar {
+                justify-content: center;
+            }
+            .product-filters-section .filter-dropdown,
+            .product-filters-section .btn-primary,
+            .product-filters-section .sort-by {
+                width: 100%; /* Full width on small screens */
+            }
+            .product-filters-section .sort-by {
+                margin-left: 0; /* Remove auto margin on small screens */
+            }
+        }
+
+        /* New Styles for Products Listing Section */
+        .products-listing-section {
+            padding: 80px 0;
+            background-color: #f8f8f8;
+        }
+
+        .products-listing-section .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%; /* To center the ::after pseudo-element */
+        }
+
+        .products-listing-section .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -15px;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #ffb52f; /* Orange accent */
+            border-radius: 2px;
+        }
+
+        .products-listing-section .single-product-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%; /* Ensure uniform height for product cards */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Distribute space */
+        }
+
+        .products-listing-section .single-product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .products-listing-section .product-image {
+            height: 200px; /* Fixed height for product images */
+            overflow: hidden;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .products-listing-section .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .products-listing-section .single-product-item h3 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            min-height: 50px; /* Ensure consistent height for titles */
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* Limit to 2 lines */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .products-listing-section .product-price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #ffb52f; /* Orange color for price */
+            margin-bottom: 15px;
+        }
+
+        .products-listing-section .product-price span {
+            font-size: 0.9rem;
+            font-weight: normal;
+            color: #888;
+            display: block; /* Place "Per Each" on a new line */
+        }
+
+        .products-listing-section .cart-btn {
+            background-color: #4CAF50; /* Green for add to cart */
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            width: 100%; /* Full width button */
+        }
+
+        .products-listing-section .cart-btn:hover {
+            background-color: #45a049;
+        }
     </style>
 
 </head>
 <body>
-	
+
 	<!--PreLoader-->
     <div class="loader">
         <div class="loader-inner">
@@ -386,7 +624,7 @@
         </div>
     </div>
     <!--PreLoader Ends-->
-	
+
 	<!-- header -->
 	<div class="top-header-area" id="sticker"> <!-- Added id="sticker" to the top-header-area for easier JS targeting -->
 		<div class="container">
@@ -428,7 +666,7 @@
 								</li>
 									<li><a href="shop.html#service-area">Service Areas</a></li>
 								<li><a href="#">Contact</a></li>
-								
+
 								<li>
 									<div class="header-icons">
 										<a class="shopping-cart" href="#"><i class="fas fa-shopping-cart"></i></a>
@@ -446,7 +684,7 @@
 		</div>
 	</div>
 	<!-- end header -->
-	
+
 	<!-- search area -->
 	<div class="search-area">
 		<div class="container">
@@ -465,6 +703,165 @@
 		</div>
 	</div>
 	<!-- end search area -->
+
+    <!-- 1. Stairs Categories Section -->
+    <section class="stairs-categories-section">
+        <div class="container">
+            <h2 class="section-title">Stairs Categories</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-2 col-md-4 col-sm-6 category-item" data-category="stair-spindles">
+                    <img src="http://googleusercontent.com/file_content/1" alt="Stair Spindles">
+                    <p>Stair Spindles</p>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 category-item" data-category="stair-railings">
+                    <img src="http://googleusercontent.com/file_content/2" alt="Stair Railings">
+                    <p>Stair Railings</p>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 category-item" data-category="deck-railing-kits">
+                    <img src="http://googleusercontent.com/file_content/3" alt="Deck Railing Kits">
+                    <p>Deck Railing Kits</p>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 category-item" data-category="balusters">
+                    <img src="http://googleusercontent.com/file_content/4" alt="Balusters">
+                    <p>Balusters</p>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 category-item" data-category="deck-rails">
+                    <img src="https://placehold.co/300x150/E74C3C/FFFFFF?text=Deck+Rails" alt="Deck Rails">
+                    <p>Deck Rails</p>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 category-item" data-category="posts">
+                    <img src="https://placehold.co/300x150/2C3E50/FFFFFF?text=Posts" alt="Posts">
+                    <p>Posts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Product Filters Section -->
+    <section class="product-filters-section">
+        <div class="container">
+            <div class="filter-bar">
+                <div class="filter-dropdown col-md-2 col-sm-6">
+                    <select id="categoryFilter">
+                        <option value="all">Category</option>
+                        <option value="stair-spindles">Stair Spindles</option>
+                        <option value="stair-railings">Stair Railings</option>
+                        <option value="deck-railing-kits">Deck Railing Kits</option>
+                        <option value="balusters">Balusters</option>
+                        <option value="deck-rails">Deck Rails</option>
+                        <option value="posts">Posts</option>
+                        <option value="stair-stringers">Stair Stringers</option>
+                        <option value="stair-treads">Stair Treads</option>
+                    </select>
+                </div>
+                <div class="filter-dropdown col-md-2 col-sm-6">
+                    <select id="materialFilter">
+                        <option value="all">Material</option>
+                        <option value="aluminum">Aluminum</option>
+                        <option value="wood">Wood</option>
+                        <option value="steel">Steel</option>
+                        <option value="composite">Composite</option>
+                        <option value="iron">Iron</option>
+                        <option value="glass">Glass</option>
+                        <option value="metal">Metal</option>
+                    </select>
+                </div>
+                <div class="filter-dropdown col-md-2 col-sm-6">
+                    <select id="brandFilter">
+                        <option value="all">Brand Name</option>
+                        <option value="peak">Peak RailBlazers</option>
+                        <option value="veranda">Veranda</option>
+                        <option value="novo">Novo Iron</option>
+                        <option value="barrette">Barrette Outdoor</option>
+                        <option value="deckorators">Deckorators</option>
+                        <option value="alexandria">Alexandria Moulding</option>
+                        <option value="richelieu">Richelieu</option>
+                        <option value="micropro">MicroPro Sienna</option>
+                        <option value="pylex">Pylex Collection</option>
+                        <option value="peak-mountainview">Peak MountainView</option>
+                        <option value="thermorx">Thermorx</option>
+                        <option value="cap-a-tread">Cap A Tread</option>
+                        <option value="nuvo-iron">Nuvo Iron</option>
+                    </select>
+                </div>
+                <div class="filter-dropdown col-md-2 col-sm-6">
+                    <select id="colorFilter">
+                        <option value="all">Colour Family</option>
+                        <option value="black">Black</option>
+                        <option value="brown">Brown</option>
+                        <option value="white">White</option>
+                        <option value="grey">Grey</option>
+                        <option value="clear">Clear</option>
+                        <option value="silver">Silver</option>
+                        <option value="pine">Pine</option>
+                        <option value="paint-grade">Paint Grade</option>
+                    </select>
+                </div>
+                <div class="filter-dropdown col-md-2 col-sm-6">
+                    <select id="depthFilter">
+                        <option value="all">Nominal Depth (in.)</option>
+                        <option value="0.3125">5/16</option>
+                        <option value="0.5">0.5</option>
+                        <option value="1">1</option>
+                        <option value="1.125">1-1/8</option>
+                        <option value="1.25">1-1/4</option>
+                        <option value="1.5">1.5</option>
+                        <option value="2">2</option>
+                        <option value="2.19">2.19</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="8">8</option>
+                        <option value="10">10</option>
+                        <option value="10.25">10-1/4</option>
+                        <option value="12.13">12.13</option>
+                        <option value="26">26</option>
+                        <option value="28">28</option>
+                        <option value="32">32</option>
+                        <option value="34.625">34-5/8</option>
+                        <option value="34.75">34.75</option>
+                        <option value="44">44</option>
+                        <option value="48">48</option>
+                        <option value="72">72</option>
+                    </select>
+                </div>
+                <div class="filter-dropdown col-md-2 col-sm-6">
+                    <select id="priceFilter">
+                        <option value="all">Price</option>
+                        <option value="0-25">$0 - $25</option>
+                        <option value="26-50">$26 - $50</option>
+                        <option value="51-100">$51 - $100</option>
+                        <option value="101-200">$101 - $200</option>
+                        <option value="201-300">$201 - $300</option>
+                        <option value="301-500">$301 - $500</option>
+                        <option value="501-1500">$501 - $1500</option>
+                    </select>
+                </div>
+                <div class="col-md-2 col-sm-6 d-flex justify-content-center justify-content-md-start">
+                    <button class="btn btn-primary w-100" id="clearFiltersBtn">Clear All Filters</button>
+                </div>
+                <div class="sort-by col-md-2 col-sm-6 d-flex justify-content-center justify-content-md-end">
+                    <select id="sortFilter">
+                        <option value="recommended">Sort by: Recommended</option>
+                        <option value="price-low-high">Price: Low to High</option>
+                        <option value="price-high-low">Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Products Listing Section -->
+    <section class="products-listing-section">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <div class="row" id="products-container">
+                <!-- Products will be dynamically loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
 
 	<!-- Stairs Projects Section -->
 <div id="stairs-projects-section" class="container mt-150">
@@ -529,7 +926,7 @@
                 <img src="assets/img/stairs-10.jpg" alt="Stairs Project Image 10">
             </div>
         </div>
-		
+
     </div>
     <div class="text-center mt-5">
       <a href="#estimate-form-section" class="btn btn-success px-5 py-2" style="background-color: #f57c00; border: none;">
@@ -697,13 +1094,13 @@
 		</div>
 	</div>
 	<!-- end footer -->
-	
+
 	<!-- copyright -->
 	<div class="copyright">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
-					
+
 				</div>
 				<div class="col-lg-6 text-right col-md-12">
 					<div class="social-icons">
@@ -815,8 +1212,721 @@
         }
     });
   });
+
+  // New JavaScript for Product Filtering and Display
+  document.addEventListener("DOMContentLoaded", function () {
+    // Sample product data
+    const products = [
+        {
+            id: 1,
+            name: "Peak RailBlazers Aluminum Deck Railing - Stair Kit with Pickets Kit - 6 ft. Matte Black",
+            image: "http://googleusercontent.com/file_content/1",
+            price: 287,
+            category: "deck-railing-kits",
+            material: "aluminum",
+            brand: "peak",
+            color: "black",
+            depth: "6"
+        },
+        {
+            id: 2,
+            name: "Veranda 10-pc Aluminum Stair Baluster Kit with 26-inch Round Balusters, Connectors and Deck Screws - Brown",
+            image: "http://googleusercontent.com/file_content/2",
+            price: 41,
+            category: "balusters",
+            material: "aluminum",
+            brand: "veranda",
+            color: "brown",
+            depth: "26"
+        },
+        {
+            id: 3,
+            name: "Novo Iron 34.75 inch x 48 inch Aluminum Outdoor Stair Railing in Black",
+            image: "http://googleusercontent.com/file_content/3",
+            price: 169,
+            category: "stair-railings",
+            material: "aluminum",
+            brand: "novo",
+            color: "black",
+            depth: "34.75"
+        },
+        {
+            id: 4,
+            name: "Barrette Outdoor Living 34 inch x 72-Inch Powdercoated Steel Stair Rail Panel Black",
+            image: "http://googleusercontent.com/file_content/4",
+            price: 148,
+            category: "stair-railings",
+            material: "steel",
+            brand: "barrette",
+            color: "black",
+            depth: "72"
+        },
+        {
+            id: 5,
+            name: "Veranda 15pc Aluminum Baluster Kit with 26-in Round Balusters End Caps and Brackets for 8ft W x 36in H Deck Railing - Brown",
+            image: "http://googleusercontent.com/file_content/4",
+            price: 56,
+            category: "balusters",
+            material: "aluminum",
+            brand: "veranda",
+            color: "brown",
+            depth: "26"
+        },
+        {
+            id: 6,
+            name: "Deckorators 6 ft x 36 in Classic Composite Stair Railing Kit - White",
+            image: "http://googleusercontent.com/file_content/1",
+            price: 189,
+            category: "stair-railings",
+            material: "composite",
+            brand: "deckorators",
+            color: "white",
+            depth: "6"
+        },
+        {
+            id: 7,
+            name: "Alexandria Moulding 1-1/8 in x 2-1/8 in x 12 Ft Finger Jointed Pine Handrail",
+            image: "http://googleusercontent.com/file_content/2",
+            price: 62,
+            category: "stair-railings",
+            material: "wood",
+            brand: "alexandria",
+            color: "pine",
+            depth: "1.125" // 1-1/8 inch
+        },
+        {
+            id: 8,
+            name: "Peak RailBlazers Aluminum Deck Railing - Stair Kit with Wide Pickets - 6 ft. Matte Black",
+            image: "http://googleusercontent.com/file_content/1",
+            price: 333,
+            category: "deck-railing-kits",
+            material: "aluminum",
+            brand: "peak",
+            color: "black",
+            depth: "6"
+        },
+        {
+            id: 9,
+            name: "Richelieu 6 ft (1.83 m) Rectangular Handrail for Stair Handrail - Brushed Stainless Steel Finish",
+            image: "http://googleusercontent.com/file_content/3",
+            price: 118,
+            category: "stair-railings",
+            material: "steel",
+            brand: "richelieu",
+            color: "silver",
+            depth: "2" // Assuming a common rectangular handrail depth
+        },
+        {
+            id: 10,
+            name: "MicroPro Sienna 2 x 4 x 6' Treated Wood Drilled Rail",
+            image: "http://googleusercontent.com/file_content/4",
+            price: 14,
+            category: "deck-rails",
+            material: "wood",
+            brand: "micropro",
+            color: "brown",
+            depth: "2" // Assuming 2 inch depth for 2x4
+        },
+        {
+            id: 11,
+            name: "Veranda 15pc Aluminum Baluster Kit with 28-in Round Balusters End Caps and Brackets for 6ft W x 36in H Deck Railing - Brown",
+            image: "http://googleusercontent.com/file_content/4",
+            price: 56,
+            category: "balusters",
+            material: "aluminum",
+            brand: "veranda",
+            color: "brown",
+            depth: "28"
+        },
+        {
+            id: 12,
+            name: "Veranda 10-pc Aluminum Stair Baluster Kit with 26-inch Rectangular Balusters, Connectors - Brown",
+            image: "http://googleusercontent.com/file_content/2",
+            price: 69,
+            category: "balusters",
+            material: "aluminum",
+            brand: "veranda",
+            color: "brown",
+            depth: "26"
+        },
+        {
+            id: 13,
+            name: "Veranda 15-pc Aluminum Baluster Kit with 32-in Rectangular Balusters, End Caps and Brackets - Brown",
+            image: "http://googleusercontent.com/file_content/2",
+            price: 109,
+            category: "balusters",
+            material: "aluminum",
+            brand: "veranda",
+            color: "brown",
+            depth: "32"
+        },
+        {
+            id: 14,
+            name: "Peak MountainView Deck Railing 10 1/4 inch x 8mm Stair Bottom Tempered Glass Panel",
+            image: "http://googleusercontent.com/file_content/1",
+            price: 36,
+            category: "stair-railings",
+            material: "glass",
+            brand: "peak-mountainview",
+            color: "clear",
+            depth: "0.5" // 8mm is approx 0.31 inches, using 0.5 for simplicity in dropdown
+        },
+        {
+            id: 15,
+            name: "Peak MountainView Deck Railing 7 1/2 inch x 8mm Stair Mid Tempered Glass Panel",
+            image: "http://googleusercontent.com/file_content/1",
+            price: 27,
+            category: "stair-railings",
+            material: "glass",
+            brand: "peak-mountainview",
+            color: "clear",
+            depth: "0.5" // 8mm is approx 0.31 inches, using 0.5 for simplicity in dropdown
+        },
+        {
+            id: 16,
+            name: "Pylex Collection 11_4 Steps Aluminum Stair Stringer White - 71-1/2-in x 10-1/4-in Includes one (1) stringer",
+            image: "http://googleusercontent.com/file_content/2",
+            price: 63,
+            category: "stair-stringers", // New category
+            material: "aluminum",
+            brand: "pylex",
+            color: "white",
+            depth: "10.25" // 10-1/4 inches
+        },
+        {
+            id: 17,
+            name: "Novo Iron 0.5 in. x 44 in. Square Long Classic Black Steel Interior Stair Baluster (12-Pack)",
+            image: "http://googleusercontent.com/file_content/3",
+            price: 71.99,
+            category: "balusters",
+            material: "steel",
+            brand: "novo",
+            color: "black",
+            depth: "0.5"
+        },
+        {
+            id: 18,
+            name: "Deckorators 6 ft. x 36 in. Classic Composite Stair Railing Kit - Black",
+            image: "http://googleusercontent.com/file_content/image_d496a2.png-f89e6794-bf7d-4693-a16e-b7dfc0b853d7",
+            price: 189.78,
+            category: "stair-railings",
+            material: "composite",
+            brand: "deckorators",
+            color: "black",
+            depth: "6"
+        },
+        {
+            id: 19,
+            name: "Veranda 6 ft. Classic Stair Rail Kit - Black",
+            image: "http://googleusercontent.com/file_content/image_d496a2.png-f89e6794-bf7d-4693-a16e-b7dfc0b853d7",
+            price: 113,
+            category: "stair-railings",
+            material: "aluminum",
+            brand: "veranda",
+            color: "black",
+            depth: "6"
+        },
+        {
+            id: 20,
+            name: "Richelieu 10 ft (3.05 m) Rectangular Handrail for Stair Handrail, Satin Black Finish",
+            image: "http://googleusercontent.com/file_content/image_d496a2.png-f89e6794-bf7d-4693-a16e-b7dfc0b853d7",
+            price: 138,
+            category: "stair-railings",
+            material: "aluminum",
+            brand: "richelieu",
+            color: "black",
+            depth: "2"
+        },
+        {
+            id: 21,
+            name: "Alexandria Moulding 1 1/4-inch x 1 1/4-inch x 40-inch Paint Grade Square Top Baluster",
+            image: "http://googleusercontent.com/file_content/image_d496a2.png-f89e6794-bf7d-4693-a16e-b7dfc0b853d7",
+            price: 12,
+            category: "balusters",
+            material: "wood",
+            brand: "alexandria",
+            color: "paint-grade", // New color
+            depth: "1.25"
+        },
+        {
+            id: 22,
+            name: "Peak RailBlazers Aluminum Deck Railing - Stair Kit with Pickets - 6 ft. White",
+            image: "http://googleusercontent.com/file_content/image_d496a2.png-f89e6794-bf7d-4693-a16e-b7dfc0b853d7",
+            price: 287,
+            category: "deck-railing-kits",
+            material: "aluminum",
+            brand: "peak",
+            color: "white",
+            depth: "6"
+        },
+        {
+            id: 23,
+            name: "Deckorators 6 ft x 36 in. Classic Composite Railing Kit - White",
+            image: "http://googleusercontent.com/file_content/image_d4967e.png-dd4ee78e-a885-4ead-b07f-9b26348fb247",
+            price: 169.98,
+            category: "stair-railings",
+            material: "composite",
+            brand: "deckorators",
+            color: "white",
+            depth: "6"
+        },
+        {
+            id: 24,
+            name: "Peak Stair Risers 4-Step Powder Coated Steel Stair Riser (Stringer) in Matte Black",
+            image: "http://googleusercontent.com/file_content/image_d4967e.png-dd4ee78e-a885-4ead-b07f-9b26348fb247",
+            price: 46,
+            category: "stair-stringers",
+            material: "steel",
+            brand: "peak",
+            color: "black",
+            depth: "4" // 4-step riser
+        },
+        {
+            id: 25,
+            name: "Peak RailBlazers 42 in. H x 5/16 in. W Aluminum Deck Railing Stair Post Kit in Matte Black",
+            image: "http://googleusercontent.com/file_content/image_d4967e.png-dd4ee78e-a885-4ead-b07f-9b26348fb247",
+            price: 117,
+            category: "posts",
+            material: "aluminum",
+            brand: "peak",
+            color: "black",
+            depth: "0.3125" // 5/16 inch
+        },
+        {
+            id: 26,
+            name: "Cap A Tread 2.19-inch x 12.13-inch x 47-inch Stair Tread and Reversible Riser Kit, Color 3673",
+            image: "http://googleusercontent.com/file_content/image_d4967e.png-dd4ee78e-a885-4ead-b07f-9b26348fb247",
+            price: 98,
+            category: "stair-treads", // New category
+            material: "wood", // Assuming composite wood or similar
+            brand: "cap-a-tread",
+            color: "brown", // Assuming color 3673 is brown
+            depth: "12.13"
+        },
+        {
+            id: 27,
+            name: "Nuvo Iron Royal Railing - Luxembourg 31 1/8-in Long x 1/2-in W - 13 Balusters - Connectors &...",
+            image: "http://googleusercontent.com/file_content/image_d4967e.png-dd4ee78e-a885-4ead-b07f-9b26348fb247",
+            price: 109,
+            category: "balusters",
+            material: "iron",
+            brand: "nuvo-iron",
+            color: "black",
+            depth: "0.5" // 1/2 inch
+        },
+        {
+            id: 28,
+            name: "Thermorx 2 x 4 x 6 ft. Drilled Rail - Pine",
+            image: "http://googleusercontent.com/file_content/image_d49642.png-1dd16407-7b10-4ddd-8c56-122447b5678c",
+            price: 29.98,
+            category: "deck-rails",
+            material: "wood",
+            brand: "thermorx",
+            color: "pine",
+            depth: "2"
+        },
+        {
+            id: 29,
+            name: "Nuvo Iron 0.5 in. Interior Baluster Surface Mount Stair Railing Angled Shoe (12-Pack)",
+            image: "http://googleusercontent.com/file_content/image_d49642.png-1dd16407-7b10-4ddd-8c56-122447b5678c",
+            price: 39.98,
+            category: "stair-railings", // Assuming shoe is part of railing system
+            material: "steel", // Assuming metal
+            brand: "nuvo-iron",
+            color: "black",
+            depth: "0.5"
+        },
+        {
+            id: 30,
+            name: "Barrette Outdoor Living Steel Railing Stair/Angle Bracket Kit (4-Pack) Black",
+            image: "http://googleusercontent.com/file_content/image_d49642.png-1dd16407-7b10-4ddd-8c56-122447b5678c",
+            price: 29.98,
+            category: "stair-railings",
+            material: "steel",
+            brand: "barrette",
+            color: "black",
+            depth: "1" // Assuming small depth for bracket
+        },
+        {
+            id: 31,
+            name: "Nuvo Iron Handrail Kit - 4-5 Step Aluminum Stoop Railing",
+            image: "http://googleusercontent.com/file_content/image_d49642.png-1dd16407-7b10-4ddd-8c56-122447b5678c",
+            price: 198,
+            category: "stair-railings",
+            material: "aluminum",
+            brand: "nuvo-iron",
+            color: "black",
+            depth: "4" // Assuming 4-5 step railing is around 4ft deep
+        },
+        {
+            id: 32,
+            name: "Alexandria Moulding Matte black Eclectic metal baluster 1/2 x 1/2 x 44\"",
+            image: "http://googleusercontent.com/file_content/image_d49642.png-1dd16407-7b10-4ddd-8c56-122447b5678c",
+            price: 19.80,
+            category: "balusters",
+            material: "metal",
+            brand: "alexandria",
+            color: "black",
+            depth: "0.5"
+        },
+        {
+            id: 33,
+            name: "Peak RailBlazers Aluminum Deck Railing - Continuous Handrail Kit - 8 ft. Matte Black",
+            image: "http://googleusercontent.com/file_content/image_d4937d.jpg-4c5f9690-4f59-4863-9785-8e158a592ce6",
+            price: 172.28,
+            category: "stair-railings",
+            material: "aluminum",
+            brand: "peak",
+            color: "black",
+            depth: "8"
+        },
+        {
+            id: 34,
+            name: "Veranda 6 ft. Classic Top & Bottom Rail Kit - White",
+            image: "http://googleusercontent.com/file_content/image_d4937d.jpg-4c5f9690-4f59-4863-9785-8e158a592ce6",
+            price: 92.31,
+            category: "stair-railings",
+            material: "aluminum",
+            brand: "veranda",
+            color: "white",
+            depth: "6"
+        },
+        {
+            id: 35,
+            name: "Barrette Outdoor Living 72\" x 34\" Steel Level Rail Panel Black",
+            image: "http://googleusercontent.com/file_content/image_d4937d.jpg-4c5f9690-4f59-4863-9785-8e158a592ce6",
+            price: 99.98,
+            category: "stair-railings",
+            material: "steel",
+            brand: "barrette",
+            color: "black",
+            depth: "72"
+        },
+        {
+            id: 36,
+            name: "Veranda 37 inch. x 6 ft. Brown Wood with Deck Rail Kit PTL edge",
+            image: "http://googleusercontent.com/file_content/image_d4937d.jpg-4c5f9690-4f59-4863-9785-8e158a592ce6",
+            price: 88,
+            category: "deck-railing-kits",
+            material: "wood",
+            brand: "veranda",
+            color: "brown",
+            depth: "6"
+        },
+        {
+            id: 37,
+            name: "Peak RailBlazers Aluminum Deck Railing - Stair Bracket Kit, Matte Black",
+            image: "http://googleusercontent.com/file_content/image_d4937d.jpg-4c5f9690-4f59-4863-9785-8e158a592ce6",
+            price: 55.92,
+            category: "stair-railings",
+            material: "aluminum",
+            brand: "peak",
+            color: "black",
+            depth: "1" // Assuming a standard bracket depth
+        },
+        {
+            id: 38,
+            name: "Peak Stair Risers 5-Step Powder Coated Steel Stair Riser (Stringer) in Matte Black",
+            image: "http://googleusercontent.com/file_content/image_d4935b.png-080617e1-ed62-46c8-8f4f-d01a692031c3",
+            price: 59.98,
+            category: "stair-stringers",
+            material: "steel",
+            brand: "peak",
+            color: "black",
+            depth: "5" // 5-step riser
+        },
+        {
+            id: 39,
+            name: "Richelieu 34 5/8-inch (880 mm) Landing Post for Stair Railing, Satin Black Finish",
+            image: "http://googleusercontent.com/file_content/image_d4935b.png-080617e1-ed62-46c8-8f4f-d01a692031c3",
+            price: 178,
+            category: "posts",
+            material: "steel",
+            brand: "richelieu",
+            color: "black",
+            depth: "34.625" // 34 5/8 inches
+        },
+        {
+            id: 40,
+            name: "MicroPro Sienna Pressure Treated Wood 3-Step Stair Stringer",
+            image: "http://googleusercontent.com/file_content/image_d4935b.png-080617e1-ed62-46c8-8f4f-d01a692031c3",
+            price: 23.38,
+            category: "stair-stringers",
+            material: "wood",
+            brand: "micropro",
+            color: "brown",
+            depth: "3" // 3-step stringer
+        },
+        {
+            id: 41,
+            name: "Barrette Outdoor Living ADA COMPLIANT 1.5\" x 80\" Aluminum Handrail Lineal Black",
+            image: "http://googleusercontent.com/file_content/image_d4935b.png-080617e1-ed62-46c8-8f4f-d01a692031c3",
+            price: 81.97,
+            category: "stair-railings",
+            material: "aluminum",
+            brand: "barrette",
+            color: "black",
+            depth: "1.5"
+        },
+        {
+            id: 42,
+            name: "Peak Stair Risers 2-Step Powder Coated Steel Stair Riser (Stringer) in Matte Black",
+            image: "http://googleusercontent.com/file_content/image_d4935b.png-080617e1-ed62-46c8-8f4f-d01a692031c3",
+            price: 26.80,
+            category: "stair-stringers",
+            material: "steel",
+            brand: "peak",
+            color: "black",
+            depth: "2" // 2-step riser
+        },
+        {
+            id: 43,
+            name: "Richelieu 4 ft (1.22 m) Rectangular Handrail for Stair Handrail, Satin Black Finish",
+            image: "http://googleusercontent.com/file_content/image_d49337.png-5b00f531-bcef-48ed-961d-ba8be73c788c",
+            price: 68.98,
+            category: "stair-railings",
+            material: "aluminum",
+            brand: "richelieu",
+            color: "black",
+            depth: "4" // 4ft handrail
+        },
+        {
+            id: 44,
+            name: "Peak Stair Risers 10-Step Steel Stair Riser (Stringer) and Connector Kit in Matte Black",
+            image: "http://googleusercontent.com/file_content/image_d49337.png-5b00f531-bcef-48ed-961d-ba8be73c788c",
+            price: 159,
+            category: "stair-stringers",
+            material: "steel",
+            brand: "peak",
+            color: "black",
+            depth: "10" // 10-step riser
+        },
+        {
+            id: 45,
+            name: "Nuvo Iron 0.5 in. x 44 in. Square Long Classic Black Steel Interior Stair Baluster (12-Pack)",
+            image: "http://googleusercontent.com/file_content/image_d42982.png-760031a6-8ad9-4c15-901e-cb690ec46f36",
+            price: 71.99,
+            category: "stair-spindles",
+            material: "steel",
+            brand: "nuvo-iron",
+            color: "black",
+            depth: "0.5"
+        },
+        {
+            id: 46,
+            name: "Alexandria Moulding 1 1/4-inch x 1 1/4-inch x 40-inch Paint Grade Square Top Baluster",
+            image: "http://googleusercontent.com/file_content/image_d42982.png-760031a6-8ad9-4c15-901e-cb690ec46f36",
+            price: 12.98,
+            category: "stair-spindles",
+            material: "wood",
+            brand: "alexandria",
+            color: "paint-grade",
+            depth: "1.25"
+        },
+        {
+            id: 47,
+            name: "Alexandria Moulding Matte black Eclectic metal baluster 1/2 x 1/2 x 44\"",
+            image: "http://googleusercontent.com/file_content/image_d42982.png-760031a6-8ad9-4c15-901e-cb690ec46f36",
+            price: 19.98,
+            category: "stair-spindles",
+            material: "metal",
+            brand: "alexandria",
+            color: "black",
+            depth: "0.5"
+        },
+        {
+            id: 48,
+            name: "Nuvo Iron 0.5 in. Long Hollow Black Steel Square Interior Stair Baluster - Single Collar (12-Pack)",
+            image: "http://googleusercontent.com/file_content/image_d42982.png-760031a6-8ad9-4c15-901e-cb690ec46f36",
+            price: 107.99,
+            category: "stair-spindles",
+            material: "steel",
+            brand: "nuvo-iron",
+            color: "black",
+            depth: "0.5"
+        },
+        {
+            id: 49,
+            name: "Richelieu 10 mm Angled Glass Panel for Stairs",
+            image: "http://googleusercontent.com/file_content/image_d42982.png-760031a6-8ad9-4c15-901e-cb690ec46f36",
+            price: 22.98,
+            category: "stair-railings", // This is a glass panel, not a spindle
+            material: "glass",
+            brand: "richelieu",
+            color: "clear",
+            depth: "0.39" // 10mm approx 0.39 inches
+        }
+    ];
+
+    const productsContainer = document.getElementById('products-container');
+    const categoryItems = document.querySelectorAll('.stairs-categories-section .category-item');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const materialFilter = document.getElementById('materialFilter');
+    const brandFilter = document.getElementById('brandFilter');
+    const colorFilter = document.getElementById('colorFilter');
+    const depthFilter = document.getElementById('depthFilter');
+    const priceFilter = document.getElementById('priceFilter');
+    const sortFilter = document.getElementById('sortFilter');
+    const clearFiltersBtn = document.getElementById('clearFiltersBtn'); // Get the new button
+
+    let currentFilters = {
+        category: 'all',
+        material: 'all',
+        brand: 'all',
+        color: 'all',
+        depth: 'all',
+        price: 'all',
+        sort: 'recommended'
+    };
+
+    // Function to render products
+    function renderProducts(filteredProducts) {
+        productsContainer.innerHTML = ''; // Clear previous products
+
+        if (filteredProducts.length === 0) {
+            productsContainer.innerHTML = '<div class="col-12 text-center py-5"><p>No products found matching your criteria.</p></div>';
+            return;
+        }
+
+        filteredProducts.forEach(product => {
+            const productHtml = `
+                <div class="col-lg-3 col-md-4 col-sm-6 product-item"
+                     data-category="${product.category}"
+                     data-material="${product.material}"
+                     data-brand="${product.brand}"
+                     data-color="${product.color}"
+                     data-depth="${product.depth}"
+                     data-price="${product.price}">
+                    <div class="single-product-item">
+                        <div class="product-image">
+                            <img src="${product.image}" alt="${product.name}">
+                        </div>
+                        <h3>${product.name}</h3>
+                        <p class="product-price"><span>Per Each</span> $${product.price.toFixed(2)}</p>
+                        <a href="#" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                    </div>
+                </div>
+            `;
+            productsContainer.innerHTML += productHtml;
+        });
+    }
+
+    // Function to apply filters and sort
+    function applyFiltersAndSort() {
+        let filtered = products.filter(product => {
+            const categoryMatch = currentFilters.category === 'all' || product.category === currentFilters.category;
+            const materialMatch = currentFilters.material === 'all' || product.material === currentFilters.material;
+            const brandMatch = currentFilters.brand === 'all' || product.brand === currentFilters.brand;
+            const colorMatch = currentFilters.color === 'all' || product.color === currentFilters.color;
+            const depthMatch = currentFilters.depth === 'all' || product.depth == currentFilters.depth; // Use == for number/string comparison
+
+            let priceMatch = true;
+            if (currentFilters.price !== 'all') {
+                const [minPrice, maxPrice] = currentFilters.price.split('-').map(Number);
+                priceMatch = product.price >= minPrice && product.price <= maxPrice;
+            }
+
+            return categoryMatch && materialMatch && brandMatch && colorMatch && depthMatch && priceMatch;
+        });
+
+        // Apply sorting
+        if (currentFilters.sort === 'price-low-high') {
+            filtered.sort((a, b) => a.price - b.price);
+        } else if (currentFilters.sort === 'price-high-low') {
+            filtered.sort((a, b) => b.price - a.price);
+        }
+        // "recommended" implies no specific sorting, or default order
+
+        renderProducts(filtered);
+    }
+
+    // Function to reset all filters
+    function clearAllFilters() {
+        currentFilters = {
+            category: 'all',
+            material: 'all',
+            brand: 'all',
+            color: 'all',
+            depth: 'all',
+            price: 'all',
+            sort: 'recommended'
+        };
+
+        // Reset all dropdowns to their default 'all' option
+        categoryFilter.value = 'all';
+        materialFilter.value = 'all';
+        brandFilter.value = 'all';
+        colorFilter.value = 'all';
+        depthFilter.value = 'all';
+        priceFilter.value = 'all';
+        sortFilter.value = 'recommended';
+
+        // Remove active class from category items
+        categoryItems.forEach(cat => cat.classList.remove('active'));
+
+        applyFiltersAndSort();
+    }
+
+    // Event Listeners for Category Items (Section 1)
+    categoryItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const selectedCategory = this.dataset.category;
+            currentFilters.category = selectedCategory;
+            categoryFilter.value = selectedCategory; // Update the dropdown
+            applyFiltersAndSort();
+
+            // Optional: Add/remove active class for visual feedback
+            categoryItems.forEach(cat => cat.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // Event Listeners for Filter Dropdowns (Section 2)
+    categoryFilter.addEventListener('change', function() {
+        currentFilters.category = this.value;
+        applyFiltersAndSort();
+        // Remove active class from category items if filter is changed via dropdown
+        categoryItems.forEach(cat => cat.classList.remove('active'));
+    });
+
+    materialFilter.addEventListener('change', function() {
+        currentFilters.material = this.value;
+        applyFiltersAndSort();
+    });
+
+    brandFilter.addEventListener('change', function() {
+        currentFilters.brand = this.value;
+        applyFiltersAndSort();
+    });
+
+    colorFilter.addEventListener('change', function() {
+        currentFilters.color = this.value;
+        applyFiltersAndSort();
+    });
+
+    depthFilter.addEventListener('change', function() {
+        currentFilters.depth = this.value;
+        applyFiltersAndSort();
+    });
+
+    priceFilter.addEventListener('change', function() {
+        currentFilters.price = this.value;
+        applyFiltersAndSort();
+    });
+
+    sortFilter.addEventListener('change', function() {
+        currentFilters.sort = this.value;
+        applyFiltersAndSort();
+    });
+
+    // Event Listener for Clear All Filters Button
+    clearFiltersBtn.addEventListener('click', clearAllFilters);
+
+    // Initial render of products on page load
+    applyFiltersAndSort();
+  });
 </script>
-	
+
 	<!-- jquery -->
 	<script src="assets/js/jquery-1.11.3.min.js"></script>
 	<!-- bootstrap -->
