@@ -598,7 +598,7 @@
             display: block; /* Place "Per Each" on a new line */
         }
 
-        .products-listing-section .cart-btn {
+        .products-listing-section .add-to-enquiry-btn { /* Changed class name */
             background-color: #4CAF50; /* Green for add to cart */
             color: #fff;
             padding: 10px 20px;
@@ -607,10 +607,160 @@
             transition: background-color 0.3s ease;
             display: inline-block;
             width: 100%; /* Full width button */
+            border: none; /* Ensure it's a button, not a link */
+            cursor: pointer;
         }
 
-        .products-listing-section .cart-btn:hover {
+        .products-listing-section .add-to-enquiry-btn:hover { /* Changed class name */
             background-color: #45a049;
+        }
+
+        /* Enquiry Modal Styles */
+        .enquiry-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .enquiry-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .enquiry-modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .enquiry-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .enquiry-modal-close:hover {
+            color: #ffb52f;
+        }
+
+        .enquiry-modal-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .enquiry-modal-content ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .enquiry-modal-content ul li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .enquiry-modal-content ul li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .enquiry-modal-content ul li img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+
+        .enquiry-modal-content ul li .item-details {
+            flex-grow: 1;
+        }
+
+        .enquiry-modal-content ul li .item-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .enquiry-modal-content ul li .item-details p {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 0;
+        }
+
+        .enquiry-modal-content .get-estimate-btn {
+            background-color: #ffb52f;
+            border-color: #ffb52f;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+        }
+
+        .enquiry-modal-content .get-estimate-btn:hover {
+            background-color: #de701d;
+            border-color: #de701d;
+        }
+
+        .enquiry-modal-content .empty-cart-message {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #777;
+            padding: 30px 0;
+        }
+
+        /* Style for the enquiry count badge */
+        .cart-count {
+            background-color: #ffb52f; /* Orange background */
+            color: white;
+            border-radius: 50%; /* Make it round */
+            padding: 2px 6px; /* Adjust padding for size */
+            font-size: 0.75rem; /* Smaller font size */
+            position: absolute;
+            top: -5px; /* Adjust position relative to the icon */
+            right: -10px; /* Adjust position relative to the icon */
+            min-width: 20px; /* Ensure it's wide enough for single digits */
+            text-align: center;
+            line-height: 1; /* Center text vertically */
+            display: none; /* Hidden by default when count is 0 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        }
+
+        /* Adjust icon position slightly if needed to make space for the badge */
+        .enquiry-cart-icon {
+            position: relative; /* Needed for absolute positioning of the count */
+            display: inline-block; /* Ensure it takes up space for positioning */
         }
     </style>
 
@@ -669,7 +819,11 @@
 
 								<li>
 									<div class="header-icons">
-										<a class="shopping-cart" href="#"><i class="fas fa-shopping-cart"></i></a>
+										<!-- Changed to a more generic list/enquiry icon -->
+										<a class="enquiry-cart-icon" href="#">
+											<i class="fas fa-clipboard-list"></i>
+											<span id="enquiry-count" class="cart-count">0</span> <!-- Added for count -->
+										</a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 									</div>
 								</li>
@@ -1127,6 +1281,21 @@
     <div class="image-modal-content">
         <span class="image-modal-close">&times;</span>
         <img src="" alt="Full size stairs project image" id="fullSizeImage">
+    </div>
+</div>
+
+<!-- Enquiry Modal Structure -->
+<div class="enquiry-modal-overlay" id="enquiryModal">
+    <div class="enquiry-modal-content">
+        <span class="enquiry-modal-close">&times;</span>
+        <h2>Your Enquiry List</h2>
+        <ul id="enquiry-list">
+            <!-- Enquiry items will be rendered here -->
+        </ul>
+        <div id="empty-enquiry-message" class="empty-cart-message" style="display: none;">
+            Your enquiry list is empty. Add some products!
+        </div>
+        <button class="get-estimate-btn" id="getEstimateBtn">Get Estimate</button>
     </div>
 </div>
 
@@ -1796,18 +1965,32 @@
                      data-brand="${product.brand}"
                      data-color="${product.color}"
                      data-depth="${product.depth}"
-                     data-price="${product.price}">
+                     data-price="${product.price}"
+                     data-product-id="${product.id}"> <!-- Added product ID -->
                     <div class="single-product-item">
                         <div class="product-image">
                             <img src="${product.image}" alt="${product.name}">
                         </div>
                         <h3>${product.name}</h3>
                         <p class="product-price"><span>Per Each</span> $${product.price.toFixed(2)}</p>
-                        <a href="#" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                        <button class="add-to-enquiry-btn" data-product-id="${product.id}">
+                            <i class="fas fa-plus-circle"></i> Add to Enquiry <!-- Changed button text and icon -->
+                        </button>
                     </div>
                 </div>
             `;
             productsContainer.innerHTML += productHtml;
+        });
+
+        // Add event listeners to the new "Add to Enquiry" buttons
+        document.querySelectorAll('.add-to-enquiry-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const productId = parseInt(this.dataset.productId);
+                const productToAdd = products.find(p => p.id === productId);
+                if (productToAdd) {
+                    EnquiryCart.addItem(productToAdd); // Use the EnquiryCart module
+                }
+            });
         });
     }
 
@@ -1947,6 +2130,8 @@
 	<script src="assets/js/sticker.js"></script>
 	<!-- main js -->
 	<script src="assets/js/main.js"></script>
+    <!-- New cart/enquiry module -->
+    <script src="assets/js/cart.js"></script>
 
 
 </body>
