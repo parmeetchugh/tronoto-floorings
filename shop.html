@@ -232,6 +232,7 @@
             align-items: center; /* Center vertically */
             border-radius: 10px; /* Rounded corners for the container */
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+            cursor: pointer; /* Indicate that images are clickable */
         }
 
         .project-img-container img {
@@ -323,6 +324,79 @@
             .service-areas-section .orange-square {
                 width: 30px;
                 height: 30px;
+            }
+        }
+
+        /* Styles for the image modal/lightbox */
+        .image-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+            backdrop-filter: blur(8px); /* Blur effect */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Ensure it's on top of everything */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .image-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .image-modal-content {
+            position: relative;
+            max-width: 90%; /* Max width of the image */
+            max-height: 90%; /* Max height of the image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-modal-content img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Ensure the whole image is visible */
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .image-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 1001; /* Ensure close button is above the image */
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .image-modal-close:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Responsive adjustments for modal */
+        @media (max-width: 767.98px) {
+            .image-modal-close {
+                top: 10px;
+                right: 10px;
+                font-size: 24px;
+                width: 35px;
+                height: 35px;
             }
         }
     </style>
@@ -923,6 +997,15 @@
 	<a href="#" id="scrollToTop" title="Back to top">
   <i class="fas fa-arrow-up"></i>
 </a>
+
+<!-- Image Modal Structure -->
+<div class="image-modal-overlay" id="imageModal">
+    <div class="image-modal-content">
+        <span class="image-modal-close">&times;</span>
+        <img src="" alt="Full size renovation image" id="fullSizeImage">
+    </div>
+</div>
+
 <script>
 
 
@@ -995,6 +1078,51 @@
         const y = formSection.getBoundingClientRect().top + window.scrollY + yOffset;
         window.scrollTo({ top: y, behavior: "smooth" });
       }
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const imageModal = document.getElementById('imageModal');
+    const fullSizeImage = document.getElementById('fullSizeImage');
+    const closeButton = document.querySelector('.image-modal-close');
+    const projectImages = document.querySelectorAll('.project-img-container img');
+
+    // Function to open the modal
+    function openModal(imageSrc) {
+        fullSizeImage.src = imageSrc;
+        imageModal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        imageModal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+        fullSizeImage.src = ''; // Clear image src
+    }
+
+    // Add click event listeners to all project images
+    projectImages.forEach(image => {
+        image.addEventListener('click', function() {
+            openModal(this.src);
+        });
+    });
+
+    // Add click event listener to the close button
+    closeButton.addEventListener('click', closeModal);
+
+    // Close modal if clicked outside the image content
+    imageModal.addEventListener('click', function(e) {
+        if (e.target === imageModal) {
+            closeModal();
+        }
+    });
+
+    // Close modal on escape key press
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && imageModal.classList.contains('active')) {
+            closeModal();
+        }
     });
   });
 </script>
