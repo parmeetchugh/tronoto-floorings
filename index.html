@@ -169,6 +169,15 @@
             font-weight: bold;
         }
 
+        /* Added style for the new one-liner descriptions */
+        .how-it-works-section .process-step p {
+            font-size: 0.9rem; /* Adjust font size as needed */
+            color: #666;
+            margin-top: 10px; /* Space between heading and description */
+            line-height: 1.4;
+        }
+
+
         .how-it-works-section .process-arrow {
             position: absolute;
             top: 50%;
@@ -473,6 +482,67 @@
 	</div>
 	<!-- end features list section -->
 
+	<!-- How It Works Section -->
+	<div class="how-it-works-section mt-150 ">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="section-title">	
+						<h3><span class="orange-text">How It</span> Works</h3>
+						<p>Our simple process to help you get the best flooring and building supplies.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row justify-content-center">
+				<!-- Step 1: Browse Products -->
+				<div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+					<div class="process-step">
+						<div class="icon">
+							<i class="fas fa-search"></i>
+						</div>
+						<h4>Browse Products</h4>
+						<p>Explore our extensive catalog of quality materials.</p> <!-- Added one-liner -->
+						<div class="process-arrow d-none d-lg-block"><i class="fas fa-arrow-right"></i></div>
+					</div>
+				</div>
+				<!-- Step 2: Place Enquiry -->
+				<div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+					<div class="process-step">
+						<div class="icon">
+							<i class="fas fa-file-alt"></i>
+						</div>
+						<h4>Place Enquiry</h4>
+						<p>Easily submit your project requirements to us.</p> <!-- Added one-liner -->
+						<div class="process-arrow d-none d-lg-block"><i class="fas fa-arrow-right"></i></div>
+					</div>
+				</div>
+				<!-- Step 3: Get an Estimate -->
+				<div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+					<div class="process-step">
+						<div class="icon">
+							<i class="fas fa-calculator"></i>
+						</div>
+						<h4>Get an Estimate</h4>
+						<p>Receive a detailed and transparent quote for your needs.</p> <!-- Added one-liner -->
+						<div class="process-arrow d-none d-lg-block"><i class="fas fa-arrow-right"></i></div>
+					</div>
+				</div>
+				<!-- Step 4: Dispatch or Install -->
+				<div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+					<div class="process-step">
+						<div class="icon">
+							<i class="fas fa-truck-pickup"></i>
+						</div>
+						<h4>Dispatch or Install</h4>
+						<p>We'll deliver your order or begin professional installation.</p> <!-- Added one-liner -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end How It Works Section -->
+
 	<!-- Shop by Category Section -->
 <div class="category-section mt-100 section-bg-category hidden" id="shop-by-category-section">
 		<div class="container">
@@ -631,65 +701,10 @@
     </section>
     <!-- end cart banner section -->
 
-	<!-- How It Works Section -->
-	<div class="how-it-works-section mt-150 ">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 offset-lg-2 text-center">
-					<div class="section-title">	
-						<h3><span class="orange-text">How It</span> Works</h3>
-						<p>Our simple process to help you get the best flooring and building supplies.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="row justify-content-center">
-				<!-- Step 1: Browse Products -->
-				<div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-					<div class="process-step">
-						<div class="icon">
-							<i class="fas fa-search"></i>
-						</div>
-						<h4>Browse Products</h4>
-						<div class="process-arrow d-none d-lg-block"><i class="fas fa-arrow-right"></i></div>
-					</div>
-				</div>
-				<!-- Step 2: Place Enquiry -->
-				<div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-					<div class="process-step">
-						<div class="icon">
-							<i class="fas fa-file-alt"></i>
-						</div>
-						<h4>Place Enquiry</h4>
-						<div class="process-arrow d-none d-lg-block"><i class="fas fa-arrow-right"></i></div>
-					</div>
-				</div>
-				<!-- Step 3: Get an Estimate -->
-				<div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-					<div class="process-step">
-						<div class="icon">
-							<i class="fas fa-calculator"></i>
-						</div>
-						<h4>Get an Estimate</h4>
-						<div class="process-arrow d-none d-lg-block"><i class="fas fa-arrow-right"></i></div>
-					</div>
-				</div>
-				<!-- Step 4: Dispatch or Install -->
-				<div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-					<div class="process-step">
-						<div class="icon">
-							<i class="fas fa-truck-pickup"></i>
-						</div>
-						<h4>Dispatch or Install</h4>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end How It Works Section -->
+	
 
     <!-- Frequently Asked Questions Section -->
-    <div class="faq-section mt-150 mb-150 section-bg-light">
+    <div class="faq-section mb-150 section-bg-light">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 text-center">
@@ -883,8 +898,6 @@
     });
   });
 </script>
-
-
 
 
 
