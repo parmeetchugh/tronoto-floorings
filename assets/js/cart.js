@@ -6,7 +6,7 @@ const EnquiryCart = (function() {
     const enquiryList = document.getElementById('enquiry-list');
     const emptyEnquiryMessage = document.getElementById('empty-enquiry-message');
     const getEstimateBtn = document.getElementById('getEstimateBtn');
-    const enquiryCartIcon = document.querySelector('.enquiry-cart-icon');
+    // const enquiryCartIcon = document.querySelector('.enquiry-cart-icon'); // No longer needed if using delegated event on document.body
     // New: Get the count span element
     const enquiryCountSpan = document.getElementById('enquiry-count');
 
@@ -25,14 +25,18 @@ const EnquiryCart = (function() {
     // Function to open the enquiry modal
     function openEnquiryModal() {
         renderEnquiryList();
-        enquiryModal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
+        if (enquiryModal) {
+            enquiryModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
     }
 
     // Function to close the enquiry modal
     function closeEnquiryModal() {
-        enquiryModal.classList.remove('active');
-        document.body.style.overflow = ''; // Restore scrolling
+        if (enquiryModal) {
+            enquiryModal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
     }
 
     // Function to add an item to the enquiry list
@@ -49,7 +53,7 @@ const EnquiryCart = (function() {
         renderEnquiryList(); // Re-render the list after adding
     }
 
-    // Function to remove an item from the enquiry list (optional)
+    // Function to remove an item from the enquiry list
     function removeItem(productId) {
         items = items.filter(item => item.id !== productId);
         updateEnquiryCount(); // Update count after removing
@@ -58,15 +62,16 @@ const EnquiryCart = (function() {
 
     // Function to render the enquiry list in the modal
     function renderEnquiryList() {
-        enquiryList.innerHTML = ''; // Clear current list
+        if (!enquiryList) return; // Ensure enquiryList element exists
 
+        enquiryList.innerHTML = ''; // Clear current list
         if (items.length === 0) {
-            emptyEnquiryMessage.style.display = 'block';
-            getEstimateBtn.disabled = true; // Disable estimate button if no items
+            if (emptyEnquiryMessage) emptyEnquiryMessage.style.display = 'block';
+            if (getEstimateBtn) getEstimateBtn.disabled = true; // Disable estimate button if no items
             return;
         } else {
-            emptyEnquiryMessage.style.display = 'none';
-            getEstimateBtn.disabled = false; // Enable estimate button
+            if (emptyEnquiryMessage) emptyEnquiryMessage.style.display = 'none';
+            if (getEstimateBtn) getEstimateBtn.disabled = false; // Enable
         }
 
         items.forEach(item => {
@@ -75,75 +80,68 @@ const EnquiryCart = (function() {
                 <img src="${item.image}" alt="${item.name}">
                 <div class="item-details">
                     <h4>${item.name}</h4>
-                    <p>Price: $${item.price.toFixed(2)}</p>
+                    <p>$${item.price.toFixed(2)}</p>
                 </div>
-                <button class="remove-item-btn" data-product-id="${item.id}">
-                    <i class="fas fa-trash-alt"></i> Remove
-                </button>
+                <button class="remove-from-enquiry" data-id="${item.id}">&times;</button>
             `;
             enquiryList.appendChild(listItem);
         });
-
-        // Add event listeners for remove buttons
-        document.querySelectorAll('.remove-item-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const productId = parseInt(this.dataset.productId);
-                removeItem(productId);
-            });
-        });
     }
 
-    // Function to send the estimate email
+    // Function to send estimate email (placeholder)
     function sendEstimateEmail() {
         if (items.length === 0) {
-            alert("Your enquiry list is empty. Please add products before requesting an estimate.");
+            alert("Your enquiry list is empty. Please add items before requesting an estimate.");
             return;
         }
-
-        const recipientEmail = 'parmeetchugh19@gmail.com';
-        const subject = encodeURIComponent('Enquiry for Stairs Products from Toronto Floorings & Building Supplies');
-        let body = 'Dear Toronto Floorings & Building Supplies Team,\n\n';
-        body += 'I would like to request an estimate for the following products:\n\n';
-
-        items.forEach((item, index) => {
-            body += `${index + 1}. ${item.name} (Price: $${item.price.toFixed(2)})\n`;
-        });
-
-        body += '\n\nPlease provide me with a detailed estimate for these items.\n';
-        body += 'You can reach me at [Your Name] and [Your Contact Information].\n\n';
-        body += 'Thank you!';
-
-        const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${encodeURIComponent(body)}`;
-
-        window.location.href = mailtoLink; // Open the user's email client
-        closeEnquiryModal(); // Close the modal after initiating email
-        items = []; // Clear the enquiry list after sending
-        updateEnquiryCount(); // Update count after clearing
-        renderEnquiryList(); // Update the displayed list
+        const enquiryDetails = items.map(item => `${item.name} ($${item.price.toFixed(2)})`).join('\n');
+        const emailBody = `Enquiry Details:\n\n${enquiryDetails}\n\nPlease provide an estimate for these items.`;
+        // In a real application, you would send this to a backend service.
+        // For demonstration, we'll use mailto:
+        window.location.href = `mailto:info@yourcompany.com?subject=Enquiry%20Estimate%20Request&body=${encodeURIComponent(emailBody)}`;
+        alert("Estimate request sent (simulated). Please check your email client.");
+        // Clear the enquiry list after sending
+        items = [];
+        updateEnquiryCount();
+        renderEnquiryList();
+        closeEnquiryModal();
     }
 
-    // Initialize event listeners for the modal
     function init() {
-        // Event listener for opening the enquiry modal via the header icon
-        if (enquiryCartIcon) {
-            enquiryCartIcon.addEventListener('click', function(e) {
-                e.preventDefault();
+        // Event listener for opening the enquiry modal via the cart icon
+        // Using event delegation on document.body to catch clicks on dynamically added/replaced elements
+        document.body.addEventListener('click', function(e) {
+            if (e.target.closest('.enquiry-cart-icon')) {
                 openEnquiryModal();
+                e.preventDefault(); // Prevent default link behavior if href="#"
+            }
+        });
+
+        // Event listener for remove buttons inside the modal
+        // Using event delegation on enquiryList to handle dynamically added list items
+        if (enquiryList) {
+            enquiryList.addEventListener('click', function(e) {
+                if (e.target.classList.contains('remove-from-enquiry')) {
+                    const productIdToRemove = parseInt(e.target.dataset.id);
+                    removeItem(productIdToRemove);
+                }
             });
         }
 
         // Event listener for closing the enquiry modal via the close button
-        const closeBtn = enquiryModal.querySelector('.enquiry-modal-close');
+        const closeBtn = enquiryModal ? enquiryModal.querySelector('.enquiry-modal-close') : null;
         if (closeBtn) {
             closeBtn.addEventListener('click', closeEnquiryModal);
         }
 
         // Event listener for closing the enquiry modal when clicking outside content
-        enquiryModal.addEventListener('click', function(e) {
-            if (e.target === enquiryModal) {
-                closeEnquiryModal();
-            }
-        });
+        if (enquiryModal) {
+            enquiryModal.addEventListener('click', function(e) {
+                if (e.target === enquiryModal) {
+                    closeEnquiryModal();
+                }
+            });
+        }
 
         // Event listener for the "Get Estimate" button inside the modal
         if (getEstimateBtn) {
@@ -152,7 +150,7 @@ const EnquiryCart = (function() {
 
         // Close modal on escape key press
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && enquiryModal.classList.contains('active')) {
+            if (e.key === 'Escape' && enquiryModal && enquiryModal.classList.contains('active')) {
                 closeEnquiryModal();
             }
         });
@@ -166,7 +164,9 @@ const EnquiryCart = (function() {
         init: init,
         addItem: addItem,
         removeItem: removeItem,
-        getItems: () => [...items] // Return a copy of the items array
+        getItems: () => [...items], // Return a copy of the items array
+        updateEnquiryCount: updateEnquiryCount, // Expose update function for external use
+        renderEnquiryList: renderEnquiryList // Expose render function for external use
     };
 })();
 
